@@ -38,9 +38,10 @@ export class BaseSysUserService extends BaseService {
     const permsDepartmentArr = await this.baseSysPermsService.departmentIds(
       this.ctx.admin.userId
     ); // 部门权限
+    const userPidArr = await this.recursionPIDS(query.pid); // 所有子级pid
     const sql = `
         SELECT
-            a.id,a.name,a.nickName,a.headImg,a.email,a.remark,a.status,a.createTime,a.updateTime,a.username,a.phone,a.departmentId,
+            a.id,a.name,a.nickName,a.headImg,a.email,a.remark,a.status,a.createTime,a.updateTime,a.username,a.phone,a.departmentId,a.pid,
             GROUP_CONCAT(c.name) AS roleName,
             d.name as departmentName
         FROM
@@ -50,21 +51,26 @@ export class BaseSysUserService extends BaseService {
             LEFT JOIN base_sys_department d on a.departmentId = d.id
         WHERE 1 = 1
             ${this.setSql(
-              !_.isEmpty(departmentIds),
-              'and a.departmentId in (?)',
-              [departmentIds]
-            )}
+      !_.isEmpty(departmentIds),
+      'and a.departmentId in (?)',
+      [departmentIds]
+    )}
             ${this.setSql(status, 'and a.status = ?', [status])}
             ${this.setSql(keyWord, 'and (a.name LIKE ? or a.username LIKE ?)', [
-              `%${keyWord}%`,
-              `%${keyWord}%`,
-            ])}
+      `%${keyWord}%`,
+      `%${keyWord}%`,
+    ])}
             ${this.setSql(true, 'and a.username != ?', ['admin'])}
             ${this.setSql(
-              this.ctx.admin.username !== 'admin',
-              'and a.departmentId in (?)',
-              [!_.isEmpty(permsDepartmentArr) ? permsDepartmentArr : [null]]
-            )}
+      this.ctx.admin.username !== 'admin',
+      'and a.pid in (?)',
+      [!_.isEmpty(userPidArr) ? userPidArr : [null]]
+    )}
+            ${this.setSql(
+      this.ctx.admin.username !== 'admin',
+      'and a.departmentId in (?)',
+      [!_.isEmpty(permsDepartmentArr) ? permsDepartmentArr : [null]]
+    )}
         GROUP BY a.id
         `;
     return this.sqlRenderPage(sql, query);
@@ -215,5 +221,24 @@ export class BaseSysUserService extends BaseService {
    */
   async forbidden(userId) {
     await this.coolCache.del(`admin:token:${userId}`);
+  }
+
+  /**
+   * 递归查询pid
+   * @param pid 
+   */
+  async recursionPIDS(pid) {
+    const sql = `
+      (select t3.id from (
+      select t1.id,
+      if(find_in_set(pid, @pids) > 0, @pids := concat(@pids, ',', id), 0) as ischild
+      from (
+      select * from base_sys_user t order by t.id asc
+      ) t1,
+      (select @pids := ?) t2
+      ) t3 where ischild != 0 or id = ?)
+    `
+    const arr = await this.nativeQuery(sql, [pid, pid])
+    return arr.map(item => item.id)
   }
 }

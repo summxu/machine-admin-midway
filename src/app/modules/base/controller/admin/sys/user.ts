@@ -1,3 +1,8 @@
+/*
+ * @Author: Chenxu
+ * @Date: 2021-03-24 20:02:20
+ * @LastEditTime: 2021-03-24 20:54:00
+ */
 import { Body, Inject, Post, Provide } from '@midwayjs/decorator';
 import { CoolController, BaseController } from 'midwayjs-cool-core';
 import { BaseSysUserEntity } from '../../../entity/sys/user';
@@ -11,6 +16,11 @@ import { BaseSysUserService } from '../../../service/sys/user';
   api: ['add', 'delete', 'update', 'info', 'list', 'page'],
   entity: BaseSysUserEntity,
   service: BaseSysUserService,
+  insertParam: (ctx => {
+    return {
+      pid: ctx.admin.userId
+    }
+  }),
 })
 export class BaseSysUserController extends BaseController {
   @Inject()

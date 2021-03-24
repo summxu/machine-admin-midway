@@ -1,7 +1,7 @@
 /*
  * @Author: Chenxu
  * @Date: 2021-03-23 10:47:00
- * @LastEditTime: 2021-03-23 13:16:44
+ * @LastEditTime: 2021-03-24 20:33:47
  * @Msg: Nothing
  */
 import { EggAppConfig, EggAppInfo, PowerPartial } from 'egg';
@@ -16,7 +16,7 @@ export default (appInfo: EggAppInfo) => {
     host: 'localhost',
     port: 3306,
     username: 'root',
-    password: 'root',
+    password: '123123',
     database: 'cool',
     // 自动建表 注意：线上部署的时候不要使用，有可能导致数据丢失
     synchronize: true,

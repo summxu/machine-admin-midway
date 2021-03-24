@@ -1,7 +1,7 @@
 /*
  * @Author: Chenxu
  * @Date: 2021-03-23 10:47:00
- * @LastEditTime: 2021-03-24 12:41:13
+ * @LastEditTime: 2021-03-24 20:44:12
  * @Msg: Nothing
  */
 import { EntityModel } from '@midwayjs/orm';
@@ -17,6 +17,9 @@ export class BaseSysUserEntity extends BaseEntity {
   @Index()
   @Column({ comment: '部门ID', type: 'bigint', nullable: true })
   departmentId: number;
+
+  @Column({ comment: '上级人员ID', type: 'bigint', nullable: true })
+  pid: number;
 
   @Column({ comment: '姓名', nullable: true })
   name: string;
