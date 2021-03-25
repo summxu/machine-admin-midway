@@ -7,6 +7,7 @@ import * as _ from 'lodash';
 import { BaseSysRoleDepartmentEntity } from '../../entity/sys/role_department';
 import { Context } from 'egg';
 import { BaseSysPermsService } from './perms';
+import { BaseSysUserService } from "../sys/user";
 
 /**
  * 描述
@@ -23,6 +24,9 @@ export class BaseSysDepartmentService extends BaseService {
   baseSysPermsService: BaseSysPermsService;
 
   @Inject()
+  baseSysUserService: BaseSysUserService
+
+  @Inject()
   ctx: Context;
 
   /**
@@ -30,9 +34,13 @@ export class BaseSysDepartmentService extends BaseService {
    */
   async list() {
     // 部门权限
-    const permsDepartmentArr = await this.baseSysPermsService.departmentIds(
+    let permsDepartmentArr = await this.baseSysPermsService.departmentIds(
       this.ctx.admin.userId
     );
+
+    // 过滤属于自己的部门
+    const { departmentId } = await this.baseSysUserService.person()
+    permsDepartmentArr = permsDepartmentArr.filter(item => item !== departmentId)
 
     // 过滤部门权限
     const find = this.baseSysDepartmentEntity.createQueryBuilder();

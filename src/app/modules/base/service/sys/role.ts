@@ -1,3 +1,4 @@
+import { BaseSysUserService } from './user';
 import { Inject, Provide } from '@midwayjs/decorator';
 import { BaseService } from 'midwayjs-cool-core';
 import { InjectEntityModel } from '@midwayjs/orm';
@@ -29,6 +30,9 @@ export class BaseSysRoleService extends BaseService {
 
   @Inject()
   baseSysPermsService: BaseSysPermsService;
+
+  @Inject()
+  baseSysUserService: BaseSysUserService;
 
   /**
    * 根据用户ID获得所有用户角色
@@ -107,16 +111,27 @@ export class BaseSysRoleService extends BaseService {
   }
 
   async list() {
+    // 查询
+    // 查询1对1的部门角色
+    const { departmentId } = await this.baseSysUserService.person()
+    const roleDepartmentAllArr = await this.baseSysRoleDepartmentEntity.find()
+    const roleDepartmentArr = await this.baseSysRoleDepartmentEntity.find({
+      departmentId
+    })
+    const roleIds = roleDepartmentAllArr
+      .filter(item => !roleDepartmentArr.some(e => e.roleId === item.roleId))
+      .map(item => item.roleId)
+
     return this.baseSysRoleEntity
       .createQueryBuilder()
       .where(
         new Brackets(qb => {
           qb.where('id !=:id', { id: 1 }); // 超级管理员的角色不展示
-          // 如果不是超管，只能看到自己新建的或者自己有的角色
+          // 如果不是超管，只能看到自己下级的角色
           if (this.ctx.admin.username !== 'admin') {
             qb.andWhere('(userId=:userId or id in (:roleId))', {
               userId: this.ctx.admin.userId,
-              roleId: this.ctx.admin.roleIds,
+              roleId: roleIds,
             });
           }
         })
