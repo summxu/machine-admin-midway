@@ -1,7 +1,7 @@
 /*
  * @Author: Chenxu
  * @Date: 2021-03-24 20:02:20
- * @LastEditTime: 2021-03-26 01:03:27
+ * @LastEditTime: 2021-03-26 17:02:40
  */
 import { Body, Inject, Post, Provide } from '@midwayjs/decorator';
 import { Context } from 'egg';
@@ -17,11 +17,11 @@ import { BaseSysUserService } from '../../../service/sys/user';
   api: ['add', 'delete', 'update', 'info', 'list', 'page'],
   entity: BaseSysUserEntity,
   service: BaseSysUserService,
+  // 查询自己和自己的下级
   listQueryOp: {
     where: async (ctx: Context) => {
       return [
-        // 价格大于90
-        ['in (:userId)', { id: ctx.admin.userId }]
+        [`a.pid = ${ctx.admin.userId} or a.id = ${ctx.admin.userId}`]
       ]
     },
   },

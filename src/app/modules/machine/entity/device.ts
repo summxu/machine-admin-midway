@@ -1,7 +1,7 @@
 /*
  * @Author: Chenxu
  * @Date: 2021-03-23 16:44:33
- * @LastEditTime: 2021-03-26 00:39:21
+ * @LastEditTime: 2021-03-26 18:02:49
  * @Msg: Nothing
  */
 import { EntityModel } from '@midwayjs/orm';

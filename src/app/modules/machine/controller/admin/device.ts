@@ -1,13 +1,14 @@
 /*
  * @Author: Chenxu
  * @Date: 2021-03-23 17:23:04
- * @LastEditTime: 2021-03-26 00:40:50
+ * @LastEditTime: 2021-03-26 17:14:04
  * @Msg: Nothing
  */
 import { Provide } from '@midwayjs/decorator';
 import { CoolController, BaseController } from 'midwayjs-cool-core';
 import { DeviceEntity } from "../../entity/device";
 import { BaseSysUserEntity } from "../../../base/entity/sys/user";
+import { DeviceService } from '../../service/device';
 
 /**
  * 描述
@@ -16,6 +17,7 @@ import { BaseSysUserEntity } from "../../../base/entity/sys/user";
 @CoolController({
   api: ['add', 'delete', 'update', 'info', 'list', 'page'],
   entity: DeviceEntity,
+  service: DeviceService,
   insertParam: (ctx => {
     return {
       user: ctx.admin.userId
