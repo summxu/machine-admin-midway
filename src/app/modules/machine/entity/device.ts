@@ -1,7 +1,7 @@
 /*
  * @Author: Chenxu
  * @Date: 2021-03-23 16:44:33
- * @LastEditTime: 2021-03-24 15:03:25
+ * @LastEditTime: 2021-03-26 00:39:21
  * @Msg: Nothing
  */
 import { EntityModel } from '@midwayjs/orm';
@@ -14,10 +14,13 @@ import { BaseSysUserEntity } from "../../base/entity/sys/user";
  */
 @EntityModel('device')
 export class DeviceEntity extends BaseEntity {
-
-  // 绑定人员,多对一
+  // 创建人
   @ManyToOne((type) => BaseSysUserEntity, (user) => user.device)
   user: string;
+
+  // 检修人
+  @ManyToOne((type) => BaseSysUserEntity, (user) => user.device)
+  maintainer: string;
 
   @Column({ comment: '设备名称' })
   name: string;

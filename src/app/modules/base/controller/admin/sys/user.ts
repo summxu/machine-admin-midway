@@ -1,9 +1,10 @@
 /*
  * @Author: Chenxu
  * @Date: 2021-03-24 20:02:20
- * @LastEditTime: 2021-03-24 20:54:00
+ * @LastEditTime: 2021-03-26 01:03:27
  */
 import { Body, Inject, Post, Provide } from '@midwayjs/decorator';
+import { Context } from 'egg';
 import { CoolController, BaseController } from 'midwayjs-cool-core';
 import { BaseSysUserEntity } from '../../../entity/sys/user';
 import { BaseSysUserService } from '../../../service/sys/user';
@@ -16,6 +17,14 @@ import { BaseSysUserService } from '../../../service/sys/user';
   api: ['add', 'delete', 'update', 'info', 'list', 'page'],
   entity: BaseSysUserEntity,
   service: BaseSysUserService,
+  listQueryOp: {
+    where: async (ctx: Context) => {
+      return [
+        // 价格大于90
+        ['in (:userId)', { id: ctx.admin.userId }]
+      ]
+    },
+  },
   insertParam: (ctx => {
     return {
       pid: ctx.admin.userId
