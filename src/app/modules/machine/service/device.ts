@@ -1,14 +1,14 @@
 /*
  * @Author: Chenxu
  * @Date: 2021-03-23 17:00:33
- * @LastEditTime: 2021-03-26 18:03:52
+ * @LastEditTime: 2021-03-27 23:52:06
  * @Msg: Nothing
  */
 import { Provide } from '@midwayjs/decorator';
-import { BaseService } from 'midwayjs-cool-core';
 import { InjectEntityModel } from '@midwayjs/orm';
-import { DeviceEntity } from "../entity/device";
+import { BaseService } from 'midwayjs-cool-core';
 import { Repository } from 'typeorm';
+import { DeviceEntity } from "../entity/device";
 
 /**
  * 设备
@@ -22,12 +22,12 @@ export class DeviceService extends BaseService {
    * 获取设备信息
    */
   async info(id) {
-    const deviceInfo = await this.deviceEntity.findOne({
-      select:['id','maintainer'],
-      where: { id },
-      relations: ['maintainer']
-    })
-
+    const deviceInfo = await this.deviceEntity
+      .createQueryBuilder('device')
+      .select(['device.*'])
+      .addSelect('device.maintainerId', 'maintainer')
+      .where({ id })
+      .getRawOne()
     return deviceInfo
   }
 }
