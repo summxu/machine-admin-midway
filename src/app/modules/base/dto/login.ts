@@ -12,10 +12,10 @@ export class LoginDTO {
   password: number;
 
   // 验证码ID
-  @Rule(RuleType.string().required())
+  @Rule(RuleType.string())
   captchaId: string;
 
   // 验证码
-  @Rule(RuleType.string().required())
+  @Rule(RuleType.string())
   verifyCode: number;
 }

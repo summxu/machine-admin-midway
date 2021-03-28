@@ -54,7 +54,9 @@ export class BaseSysLoginService extends BaseService {
   async login(login: LoginDTO) {
     const { username, captchaId, verifyCode, password } = login;
     // 校验验证码
-    const checkV = await this.captchaCheck(captchaId, verifyCode);
+    // const checkV = await this.captchaCheck(captchaId, verifyCode);
+    const checkV = true
+    // 取消验证码校验
     if (checkV) {
       const user = await this.baseSysUserEntity.findOne({ username });
       // 校验用户
