@@ -1,7 +1,7 @@
 /*
  * @Author: Chenxu
  * @Date: 2021-03-23 17:23:04
- * @LastEditTime: 2021-03-28 10:12:43
+ * @LastEditTime: 2021-03-29 23:19:54
  * @Msg: Nothing
  */
 import { Provide } from '@midwayjs/decorator';
@@ -29,8 +29,9 @@ import { Context } from 'egg';
     fieldEq: ['status'],
     select: ['a.*', 'b.name as userName', 'c.name as maintainerName'],
     where: async (ctx: Context) => {
+      if (ctx.admin.username === 'admin') return
       return [
-        ['userId = :userId or maintainerId = :maintainerId', {
+        ['a.userId = :userId or maintainerId = :maintainerId', {
           userId: ctx.admin.userId,
           maintainerId: ctx.admin.userId
         }]
