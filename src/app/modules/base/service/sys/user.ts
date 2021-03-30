@@ -1,13 +1,14 @@
 import { Inject, Provide } from '@midwayjs/decorator';
-import { BaseService, ICoolCache, CoolCommException } from 'midwayjs-cool-core';
 import { InjectEntityModel } from '@midwayjs/orm';
-import { Repository } from 'typeorm';
-import { BaseSysUserEntity } from '../../entity/sys/user';
-import { BaseSysPermsService } from './perms';
 import * as _ from 'lodash';
-import { BaseSysUserRoleEntity } from '../../entity/sys/user_role';
 import * as md5 from 'md5';
+import { BaseService, CoolCommException, ICoolCache } from 'midwayjs-cool-core';
+import { Repository } from 'typeorm';
 import { BaseSysDepartmentEntity } from '../../entity/sys/department';
+import { BaseSysUserEntity } from '../../entity/sys/user';
+import { BaseSysUserRoleEntity } from '../../entity/sys/user_role';
+import { BaseSysDepartmentService } from './department';
+import { BaseSysPermsService } from './perms';
 
 /**
  * 系统用户
@@ -28,6 +29,9 @@ export class BaseSysUserService extends BaseService {
 
   @Inject()
   baseSysPermsService: BaseSysPermsService;
+
+  @Inject()
+  baseSysDepartmentService: BaseSysDepartmentService;
 
   /**
    * 分页查询
@@ -119,6 +123,19 @@ export class BaseSysUserService extends BaseService {
   }
 
   /**
+    * 更新用户部门关系
+    * @param user
+    */
+  async updateUserDepartment(user) {
+    if (user.username === 'admin') {
+      throw new CoolCommException('非法操作~');
+    }
+    // 根据角色查询所在最顶级部门就是角色对应的部门关系
+    const departments = await this.baseSysDepartmentService.getByRoleIds(user.roleIdList, false)
+    return departments[0]
+  }
+
+  /**
    * 新增
    * @param param
    */
@@ -132,6 +149,8 @@ export class BaseSysUserService extends BaseService {
     param.password = md5('123456'); // 默认密码  建议未改密码不能登陆
     await this.baseSysUserEntity.save(param);
     await this.updateUserRole(param);
+    const departmentId = await this.updateUserDepartment(param)
+    this.move(departmentId, [param.id])
     return param.id;
   }
 
