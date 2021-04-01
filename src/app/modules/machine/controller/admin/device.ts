@@ -1,7 +1,7 @@
 /*
  * @Author: Chenxu
  * @Date: 2021-03-23 17:23:04
- * @LastEditTime: 2021-03-30 16:55:50
+ * @LastEditTime: 2021-04-01 10:10:44
  * @Msg: Nothing
  */
 import { Provide } from '@midwayjs/decorator';
