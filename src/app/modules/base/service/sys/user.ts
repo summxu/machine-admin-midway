@@ -101,8 +101,15 @@ export class BaseSysUserService extends BaseService {
     const info = await this.baseSysUserEntity.findOne({
       id: this.ctx.admin.userId,
     });
+    const userRoles = await this.nativeQuery(
+      'select a.roleId from base_sys_user_role a where a.userId = ?',
+      [this.ctx.admin.userId]
+    );
     delete info.password;
-    return info;
+    return {
+      ...info,
+      ...userRoles[0]
+    };
   }
 
   /**

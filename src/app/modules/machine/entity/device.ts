@@ -1,7 +1,7 @@
 /*
  * @Author: Chenxu
  * @Date: 2021-03-23 16:44:33
- * @LastEditTime: 2021-04-01 10:10:54
+ * @LastEditTime: 2021-04-02 11:08:14
  * @Msg: Nothing
  */
 import { EntityModel } from '@midwayjs/orm';
@@ -26,6 +26,9 @@ export class DeviceEntity extends BaseEntity {
   // 对应工单
   @OneToMany((type) => WorkOrderEntity, (workorder) => workorder.device)
   workorder: WorkOrderEntity[];
+
+  @Column({ comment: '设备参数', type: 'longtext', nullable: true })
+  params: string;
 
   @Column({ comment: '设备名称' })
   name: string;
