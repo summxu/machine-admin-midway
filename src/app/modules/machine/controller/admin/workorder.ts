@@ -1,7 +1,7 @@
 /*
  * @Author: Chenxu
  * @Date: 2021-03-30 16:12:58
- * @LastEditTime: 2021-04-01 12:12:39
+ * @LastEditTime: 2021-04-01 21:52:36
  * @Msg: Nothing
  */
 import { Provide } from '@midwayjs/decorator';
@@ -11,6 +11,7 @@ import { BaseSysUserEntity } from '../../../base/entity/sys/user';
 import { DeviceEntity } from '../../entity/device';
 import { WorkOrderEntity } from '../../entity/workorder';
 import { WorkOrderCodeEntity } from '../../entity/workorder_code';
+import { WorkOrderService } from '../../service/workorder';
 
 /**
  * 描述
@@ -19,8 +20,8 @@ import { WorkOrderCodeEntity } from '../../entity/workorder_code';
 @CoolController({
   api: ['add', 'delete', 'update', 'info', 'list', 'page'],
   entity: WorkOrderEntity,
+  service: WorkOrderService,
   pageQueryOp: {
-    fieldEq: ['status'],
     select: [
       'a.*',
       'b.userId',
@@ -32,8 +33,9 @@ import { WorkOrderCodeEntity } from '../../entity/workorder_code';
     ],
     where: async (ctx: Context) => {
       if (ctx.admin.username === 'admin') return
+      const status = ctx.request.body.status
       return [
-        ['b.userId = :userId or b.maintainerId = :maintainerId', {
+        [`(b.userId = :userId or b.maintainerId = :maintainerId) ${status ? 'and a.status = ' + status : ''}`, {
           userId: ctx.admin.userId,
           maintainerId: ctx.admin.userId
         }]
