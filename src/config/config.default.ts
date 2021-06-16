@@ -123,5 +123,24 @@ export default (appInfo: EggAppInfo) => {
     replaceEggLogger: true,
   };
 
+  config.emqtt = {
+    client: {
+      host: 'mqtt://82.156.12.15',
+      port: 1883,
+      password: '',
+      username: '',
+      clientId: 'server',
+      options: {
+        keepalive: 60,
+        protocolId: 'MQTT',
+        protocolVersion: 4,
+        clean: true,
+        reconnectPeriod: 1000,
+        connectTimeout: 30 * 1000,
+        rejectUnauthorized: false,
+      },
+    },
+  }
+
   return config;
 };

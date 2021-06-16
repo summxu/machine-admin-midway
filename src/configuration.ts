@@ -1,4 +1,4 @@
-import { App, Configuration } from '@midwayjs/decorator';
+import { App, Configuration, Inject } from '@midwayjs/decorator';
 import { ILifeCycle, IMidwayContainer } from '@midwayjs/core';
 import { Application } from 'egg';
 import * as orm from '@midwayjs/orm';
@@ -8,6 +8,7 @@ import * as oss from 'midwayjs-cool-oss';
 import * as redis from 'midwayjs-cool-redis';
 import * as queue from 'midwayjs-cool-queue';
 import * as alipay from 'midwayjs-cool-alipay';
+import { MqttService } from './app/modules/machine/service/mqtt';
 //import * as socket from 'midwayjs-cool-socket';
 
 @Configuration({
@@ -33,10 +34,18 @@ import * as alipay from 'midwayjs-cool-alipay';
 })
 export class ContainerLifeCycle implements ILifeCycle {
   @App()
-  app: Application;
+  app: any;
+
+  @Inject()
+  mqttService: MqttService;
+
   // 应用启动完成
   async onReady(container?: IMidwayContainer) {
+    this.app.emqtt.route('publishserver', ({ req }) => {
+      this.mqttService.webhook(req)
+    })
   }
+
   // 应用停止
-  async onStop() {}
+  async onStop() { }
 }

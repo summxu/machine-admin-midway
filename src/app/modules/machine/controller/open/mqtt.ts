@@ -36,7 +36,7 @@ export class MqttAppController extends BaseController {
   */
   @Post('/webhook')
   async webhook(@Body(ALL) params) {
-    return this.ok(await this.mqttService.webhook(params));
+    return this.ok(await this.mqttService.webhook);
   }
 
   /**

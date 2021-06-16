@@ -13,21 +13,12 @@ import { BaseService } from 'midwayjs-cool-core';
 @Provide()
 export class MqttService extends BaseService {
   /**
-   * 接受webhook消息
-   * @params ts: 1623767069116,
-  *  @params topic: 'publishserver',
-  *  @params retain: false,
-  *  @params qos: 0,
-  *  @params payload: 'i am 002',
-  *  @params node: 'emqx@127.0.0.1',
-  *  @params from_username: '',
-  *  @params from_client_id: 'no002',
-  *  @params action: 'message_publish'
+   * 接受订阅消息
   */
 
-  async webhook(params) {
-    const { from_client_id, payload } = params
-    console.log(from_client_id, payload)
+  async webhook(req) {
+    const { topic, msg } = req
+    console.log(topic, msg)
     return true
   }
 
@@ -35,18 +26,15 @@ export class MqttService extends BaseService {
    * 发送消息
    */
   async sendmsg(params) {
-    const data = {
-      ...params,
-      clientid: 'server', // 可以改成当前登录用户的
-      qos: 0,
-      retain: false
+    const app: any = this.app
+    const { topic, payload } = params
+    const buffer = Buffer.from([0x01, 0x05, 0x45, 0x8B, 0x9A]);
+    // const buffer = Buffer.from([2, 32, 49, 46, 32, 192, 3, 0, 4]).toString('hex').match(/[a-z0-9][a-z0-9]/g).join(' ');
+    try {
+      await app.emqtt.publish(topic, buffer, { qos: 0 });
+    } catch (error) {
+      return new Error(error)
     }
-    const { res } = await this.ctx.curl('http://82.156.12.15:8081/api/v4/mqtt/publish', {
-      method: 'POST',
-      data: JSON.stringify(data),
-      auth: 'admin:public'
-    });
-    return res
   }
 
   /**

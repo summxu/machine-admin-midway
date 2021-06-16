@@ -7,4 +7,8 @@ export default {
     enable: true,
     package: 'egg-view-nunjucks',
   },
+  emqtt: {
+    enable: true,
+    package: 'egg-emqtt',
+  }
 } as EggPlugin;
