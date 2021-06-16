@@ -30,6 +30,9 @@ export class DeviceEntity extends BaseEntity {
   @Column({ comment: '设备参数', type: 'longtext', nullable: true })
   params: string;
 
+  @Column({ comment: '设备标识' })
+  clientid: string;
+
   @Column({ comment: '设备名称' })
   name: string;
 
