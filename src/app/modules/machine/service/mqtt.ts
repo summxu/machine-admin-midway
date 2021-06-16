@@ -37,11 +37,11 @@ export class MqttService extends BaseService {
   async sendmsg(params) {
     const data = {
       ...params,
-      clientid: 'server',
+      clientid: 'server', // 可以改成当前登录用户的
       qos: 0,
       retain: false
     }
-    const { res } = await this.ctx.curl('http://localhost:8081/api/v4/mqtt/publish', {
+    const { res } = await this.ctx.curl('http://82.156.12.15:8081/api/v4/mqtt/publish', {
       method: 'POST',
       data: JSON.stringify(data),
       auth: 'admin:public'
@@ -53,12 +53,13 @@ export class MqttService extends BaseService {
    * 查看设备是否在线
    */
   async getStatus(clientid) {
-    const { res } = await this.ctx.curl('http://localhost:8081/api/v4/mqtt/publish', {
-      method: 'POST',
-      data: JSON.stringify({ clientid }),
+    const { data } = await this.ctx.curl('http://82.156.12.15:8081/api/v4/clients', {
+      method: 'GET',
+      data: { clientid },
       auth: 'admin:public'
     });
-    return res
+    const res = JSON.parse(data.toString())
+    return res.data.length
   }
 }
 
