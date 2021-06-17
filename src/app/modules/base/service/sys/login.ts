@@ -1,25 +1,22 @@
-import { Inject, Provide, Config } from '@midwayjs/decorator';
+import { Config, Inject, Provide } from '@midwayjs/decorator';
+import { InjectEntityModel } from '@midwayjs/orm';
+import { Context } from 'egg';
+import * as jwt from 'jsonwebtoken';
+import * as _ from 'lodash';
+import * as md5 from 'md5';
 import {
-  BaseService,
-  ICoolCache,
-  CoolCommException,
-  CoolConfig,
-  RESCODE,
+  BaseService, CoolCommException,
+  CoolConfig, ICoolCache, RESCODE
 } from 'midwayjs-cool-core';
-import { LoginDTO } from '../../dto/login';
 import * as svgCaptcha from 'svg-captcha';
 import * as svgToDataURL from 'svg-to-dataurl';
-import { v1 as uuid } from 'uuid';
-import { BaseSysUserEntity } from '../../entity/sys/user';
 import { Repository } from 'typeorm';
-import { InjectEntityModel } from '@midwayjs/orm';
-import * as md5 from 'md5';
-import { BaseSysRoleService } from './role';
-import * as _ from 'lodash';
-import { BaseSysMenuService } from './menu';
+import { v1 as uuid } from 'uuid';
+import { LoginDTO } from '../../dto/login';
+import { BaseSysUserEntity } from '../../entity/sys/user';
 import { BaseSysDepartmentService } from './department';
-import * as jwt from 'jsonwebtoken';
-import { Context } from 'egg';
+import { BaseSysMenuService } from './menu';
+import { BaseSysRoleService } from './role';
 
 /**
  * 登录
@@ -52,7 +49,7 @@ export class BaseSysLoginService extends BaseService {
    * @param login
    */
   async login(login: LoginDTO) {
-    const { username, captchaId, verifyCode, password } = login;
+    const { username, password } = login;
     // 校验验证码
     // const checkV = await this.captchaCheck(captchaId, verifyCode);
     const checkV = true

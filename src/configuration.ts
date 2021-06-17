@@ -1,13 +1,12 @@
-import { App, Configuration, Inject } from '@midwayjs/decorator';
 import { ILifeCycle, IMidwayContainer } from '@midwayjs/core';
-import { Application } from 'egg';
+import { App, Configuration, Inject } from '@midwayjs/decorator';
 import * as orm from '@midwayjs/orm';
-import * as cool from 'midwayjs-cool-core';
-import * as wxpay from 'midwayjs-cool-wxpay';
-import * as oss from 'midwayjs-cool-oss';
-import * as redis from 'midwayjs-cool-redis';
-import * as queue from 'midwayjs-cool-queue';
 import * as alipay from 'midwayjs-cool-alipay';
+import * as cool from 'midwayjs-cool-core';
+import * as oss from 'midwayjs-cool-oss';
+import * as queue from 'midwayjs-cool-queue';
+import * as redis from 'midwayjs-cool-redis';
+import * as wxpay from 'midwayjs-cool-wxpay';
 import { MqttService } from './app/modules/machine/service/mqtt';
 //import * as socket from 'midwayjs-cool-socket';
 
