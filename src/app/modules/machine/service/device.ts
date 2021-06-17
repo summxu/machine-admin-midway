@@ -7,7 +7,9 @@
 import { Inject, Provide } from '@midwayjs/decorator';
 import { InjectEntityModel } from '@midwayjs/orm';
 import { BaseService } from 'midwayjs-cool-core';
+import { Context } from 'node:vm';
 import { Repository } from 'typeorm';
+import { BaseSysUserEntity } from '../../base/entity/sys/user';
 import { DeviceEntity } from "../entity/device";
 import { MqttService } from './mqtt';
 
@@ -20,7 +22,48 @@ export class DeviceService extends BaseService {
   deviceEntity: Repository<DeviceEntity>;
 
   @Inject()
-  baseSysUserService: MqttService;
+  mqttService: MqttService;
+
+  async page(params) {
+    const queryOption = {
+      keyWordLikeFields: ['name', 'channelName'],
+      select: ['a.*', 'b.name as userName', 'c.name as maintainerName'],
+      where: async (ctx: Context) => {
+        if (ctx.admin.username === 'admin') return
+        return [
+          ['a.userId = :userId or maintainerId = :maintainerId', {
+            userId: ctx.admin.userId,
+            maintainerId: ctx.admin.userId
+          }]
+        ]
+      },
+      leftJoin: [
+        {
+          entity: BaseSysUserEntity,
+          alias: 'b',
+          condition: 'a.userId = b.id',
+        }, {
+          entity: BaseSysUserEntity,
+          alias: 'c',
+          condition: 'a.maintainerId = c.id',
+        },
+      ],
+    }
+
+    let res = await super.page(params, queryOption)
+    // 获取设备在线状态
+    for (let index = 0; index < res.list.length; index++) {
+      const element = res.list[index];
+      try {
+        const status = await this.mqttService.getStatus(element.clientid)
+        element.status = status
+      } catch (error) {
+        return error
+      }
+    }
+    // 加入设备状态
+    return res
+  }
 
   /**
    * 获取设备信息
@@ -34,7 +77,7 @@ export class DeviceService extends BaseService {
       .getRawOne()
 
     // 获取设备在线状态
-    const res = await this.baseSysUserService.getStatus(deviceInfo.clientid)
+    const res = await this.mqttService.getStatus(deviceInfo.clientid)
     console.log(res)
     return deviceInfo
   }

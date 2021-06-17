@@ -10,13 +10,8 @@ import { WorkOrderCodeEntity } from '../../entity/workorder_code';
 import { MqttService } from '../../service/mqtt';
 
 interface msgType {
-  clientid: String //客户端标识符
-  payload: String //	Required		消息正文
-  topic?: String	 // Optional		主题，与 topics 至少指定其中之一
-  topics?: String	 //Optional		以 , 分割的多个主题，使用此字段能够同时发布消息到多个主题
-  encoding?: String	//Optional	plain	消息正文使用的编码方式，目前仅支持 plain 与 base64 两种
-  qos: Number	//Optional	0	QoS 等级
-  retain: Boolean	//Optional	false	是否为保留消息
+  code: String //	Required		消息正文
+  topic: String	 // Optional		主题，与 topics 至少指定其中之一
 }
 
 @Provide()

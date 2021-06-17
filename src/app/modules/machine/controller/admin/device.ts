@@ -5,11 +5,10 @@
  * @Msg: Nothing
  */
 import { Provide } from '@midwayjs/decorator';
-import { CoolController, BaseController } from 'midwayjs-cool-core';
-import { DeviceEntity } from "../../entity/device";
-import { BaseSysUserEntity } from "../../../base/entity/sys/user";
-import { DeviceService } from '../../service/device';
 import { Context } from 'egg';
+import { BaseController, CoolController } from 'midwayjs-cool-core';
+import { DeviceEntity } from "../../entity/device";
+import { DeviceService } from '../../service/device';
 
 /**
  * 描述
@@ -23,31 +22,6 @@ import { Context } from 'egg';
     return {
       user: ctx.admin.userId
     }
-  },
-  pageQueryOp: {
-    keyWordLikeFields: ['name', 'channelName'],
-    fieldEq: ['status'],
-    select: ['a.*', 'b.name as userName', 'c.name as maintainerName'],
-    where: async (ctx: Context) => {
-      if (ctx.admin.username === 'admin') return
-      return [
-        ['a.userId = :userId or maintainerId = :maintainerId', {
-          userId: ctx.admin.userId,
-          maintainerId: ctx.admin.userId
-        }]
-      ]
-    },
-    leftJoin: [
-      {
-        entity: BaseSysUserEntity,
-        alias: 'b',
-        condition: 'a.userId = b.id',
-      }, {
-        entity: BaseSysUserEntity,
-        alias: 'c',
-        condition: 'a.maintainerId = c.id',
-      },
-    ],
   },
 })
 export class DeviceAdminController extends BaseController { }

@@ -27,8 +27,10 @@ export class MqttService extends BaseService {
    */
   async sendmsg(params) {
     const app: any = this.app
-    const { topic, payload } = params
-    const buffer = Buffer.from([0x01, 0x05, 0x45, 0x8B, 0x9A]);
+    const { topic, code } = params
+    const nop = Math.round(Math.random() * 16)
+    const sum = parseInt('0x04', 16) + parseInt(code, 16) + nop
+    const buffer = Buffer.from([0x04, code, '0x' + nop.toString(16), '0x' + sum.toString(16)]);
     // const buffer = Buffer.from([2, 32, 49, 46, 32, 192, 3, 0, 4]).toString('hex').match(/[a-z0-9][a-z0-9]/g).join(' ');
     try {
       await app.emqtt.publish(topic, buffer, { qos: 0 });

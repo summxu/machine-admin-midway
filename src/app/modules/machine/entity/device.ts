@@ -42,6 +42,6 @@ export class DeviceEntity extends BaseEntity {
   @Column({ comment: 'MAC地址' })
   mac: string;
 
-  @Column({ comment: '设备状态（1:在线，2:离线）' })
-  status: number;
+  // @Column({ comment: '设备状态（1:在线，2:离线）' })
+  // status: number;
 }
