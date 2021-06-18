@@ -77,8 +77,22 @@ export class DeviceService extends BaseService {
       .getRawOne()
 
     // 获取设备在线状态
-    const res = await this.mqttService.getStatus(deviceInfo.clientid)
-    console.log(res)
+    // const res = await this.mqttService.getStatus(deviceInfo.clientid)
+    // console.log(res)
+    return deviceInfo
+  }
+
+  /**
+   * 查询表里是否有该设备
+   * @params clientid
+   */
+
+  async has(clientid) {
+    const deviceInfo = await this.deviceEntity
+      .createQueryBuilder('device')
+      .select(['device.*'])
+      .where({ clientid })
+      .getRawOne()
     return deviceInfo
   }
 }

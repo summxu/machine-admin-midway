@@ -7,6 +7,7 @@
 import { Provide } from '@midwayjs/decorator';
 import { CoolController, BaseController } from 'midwayjs-cool-core';
 import { InstructEntity } from '../../entity/instruct';
+import { InstructService } from '../../service/instruct';
 
 /**
  * 描述
@@ -15,9 +16,7 @@ import { InstructEntity } from '../../entity/instruct';
 @CoolController({
   api: ['add', 'delete', 'update', 'info', 'list', 'page'],
   entity: InstructEntity,
-  listQueryOp: {
-    fieldEq: ['type'],
-  },
+  service: InstructService,
   pageQueryOp: {
     fieldEq: ['type'],
     addOrderBy: { code: 'asc' }

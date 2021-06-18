@@ -23,14 +23,13 @@ export class DeviceEntity extends BaseEntity {
   @ManyToOne((type) => BaseSysUserEntity, (user) => user.device)
   maintainer: string;
 
-  // 对应工单
-  @OneToMany((type) => WorkOrderEntity, (workorder) => workorder.device)
-  workorder: WorkOrderEntity[];
+  @Column({ comment: '对应工单 id ' })
+  workorder: number;
 
   @Column({ comment: '设备参数', type: 'longtext', nullable: true })
   params: string;
 
-  @Column({ comment: '设备标识' })
+  @Column({ comment: '设备标识',unique:true })
   clientid: string;
 
   @Column({ comment: '设备名称' })

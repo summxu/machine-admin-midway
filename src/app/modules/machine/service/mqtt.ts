@@ -4,21 +4,41 @@
  * @LastEditTime: 2021-03-27 23:52:06
  * @Msg: Nothing
  */
-import { Provide } from '@midwayjs/decorator';
+import { Inject, Provide } from '@midwayjs/decorator';
 import { BaseService } from 'midwayjs-cool-core';
+import { DeviceService } from './device';
+import { InstructService } from './instruct';
+import { WorkOrderService } from './workorder';
 
 /**
  * 设备
  */
 @Provide()
 export class MqttService extends BaseService {
+  @Inject()
+  instructService: InstructService;
+
+  @Inject()
+  deviceService: DeviceService;
+
+  @Inject()
+  workOrderService: WorkOrderService;
   /**
    * 接受订阅消息
   */
 
   async webhook(req) {
     const { topic, msg } = req
-    console.log(topic, msg)
+    const tempTopic = topic.split('-')[0]
+    console.log(msg)
+    // 查询是否有当前设备
+    const hasDevice = await this.deviceService.has(topic)
+    if (!hasDevice) return
+    // 创建一个工单
+    this.workOrderService.generate({
+      device: tempTopic,
+      code: msg
+    })
     return true
   }
 
