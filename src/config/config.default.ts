@@ -125,7 +125,7 @@ export default (appInfo: EggAppInfo) => {
 
   config.emqtt = {
     client: {
-      host: 'mqtt://82.156.12.15',
+      host: 'mqtt://101.34.41.251',
       port: 1883,
       password: '',
       username: '',
