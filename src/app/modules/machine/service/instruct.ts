@@ -17,4 +17,17 @@ export class InstructService extends BaseService {
     const tempList = await super.list(params, {})
     return tempList.filter(item => item.type == params.type)
   }
+
+  /**
+   * 查询表里是否有代码
+   * @params clientid
+   */
+  async has({code,type}) {
+    const instructInfo = await this.instructEntity
+      .createQueryBuilder('instruct')
+      .select(['instruct.*'])
+      .where({ code ,type})
+      .getRawOne()
+    return instructInfo
+  }
 }

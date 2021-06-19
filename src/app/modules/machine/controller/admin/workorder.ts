@@ -9,8 +9,8 @@ import { Context } from 'egg';
 import { BaseController, CoolController } from 'midwayjs-cool-core';
 import { BaseSysUserEntity } from '../../../base/entity/sys/user';
 import { DeviceEntity } from '../../entity/device';
+import { InstructEntity } from '../../entity/instruct';
 import { WorkOrderEntity } from '../../entity/workorder';
-import { WorkOrderCodeEntity } from '../../entity/workorder_code';
 import { WorkOrderService } from '../../service/workorder';
 
 /**
@@ -45,7 +45,7 @@ import { WorkOrderService } from '../../service/workorder';
       {
         entity: DeviceEntity,
         alias: 'b',
-        condition: 'a.deviceId = b.id',
+        condition: 'a.deviceId = b.clientid',
       },
       {
         entity: BaseSysUserEntity,
@@ -58,7 +58,7 @@ import { WorkOrderService } from '../../service/workorder';
         condition: 'b.maintainerId = d.id',
       },
       {
-        entity: WorkOrderCodeEntity,
+        entity: InstructEntity,
         alias: 'e',
         condition: 'a.code = e.code',
       }

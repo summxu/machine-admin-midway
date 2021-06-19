@@ -86,7 +86,6 @@ export class DeviceService extends BaseService {
    * 查询表里是否有该设备
    * @params clientid
    */
-
   async has(clientid) {
     const deviceInfo = await this.deviceEntity
       .createQueryBuilder('device')

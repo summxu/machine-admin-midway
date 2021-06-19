@@ -20,7 +20,7 @@ export class WorkOrderEntity extends BaseEntity {
   code: string;
 
   @Column({ comment: '对应设备 clientid' })
-  device: string;
+  deviceId: string;
 
   @Column({ comment: '工单状态(1.待处理 2.正在处理 3.待审核 4.处理完成 5.失效)' })
   status: number;
