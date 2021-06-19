@@ -42,7 +42,7 @@ export class WorkOrderService extends BaseService {
         'e.codeString as codeString',
         'c.name as userName',
         'd.name as maintainerName'])
-      .leftJoin('device', 'b', 'a.deviceId = b.id')
+      .leftJoin('device', 'b', 'a.deviceId = b.clientid')
       .leftJoin('base_sys_user', 'c', 'b.userId = c.id')
       .leftJoin('base_sys_user', 'd', 'b.maintainerId = d.id')
       .leftJoin('workorder_code', 'e', 'a.code = e.code')
