@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50726
 File Encoding         : 65001
 
-Date: 2021-06-17 14:31:45
+Date: 2021-06-19 16:23:17
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -121,7 +121,7 @@ CREATE TABLE `base_sys_log` (
   KEY `IDX_a03a27f75cf8d502b3060823e1` (`ipAddr`),
   KEY `IDX_c9382b76219a1011f7b8e7bcd1` (`createTime`),
   KEY `IDX_bfd44e885b470da43bcc39aaa7` (`updateTime`)
-) ENGINE=InnoDB AUTO_INCREMENT=7280 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=7702 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of base_sys_log
@@ -908,6 +908,428 @@ INSERT INTO `base_sys_log` VALUES ('7276', '2021-06-17 14:28:12.788538', '2021-0
 INSERT INTO `base_sys_log` VALUES ('7277', '2021-06-17 14:28:13.185917', '2021-06-17 14:28:13.185917', '35', '/admin/machine/mqtt/sendmsg', '127.0.0.1', '本机地址', '{\"topic\":\"no002\",\"code\":\"0xd2\"}');
 INSERT INTO `base_sys_log` VALUES ('7278', '2021-06-17 14:28:38.061928', '2021-06-17 14:28:38.061928', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
 INSERT INTO `base_sys_log` VALUES ('7279', '2021-06-17 14:28:38.077340', '2021-06-17 14:28:38.077340', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7280', '2021-06-18 11:02:12.364399', '2021-06-18 11:02:12.364399', null, '/app/machine/workorder/generate', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7281', '2021-06-19 09:27:54.869770', '2021-06-19 09:27:54.869770', null, '/admin/base/open/refreshToken', '127.0.0.1', '本机地址', '{\"refreshToken\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc1JlZnJlc2giOnRydWUsInJvbGVJZHMiOlsiMSJdLCJ1c2VybmFtZSI6ImFkbWluIiwidXNlcklkIjoxLCJwYXNzd29yZFZlcnNpb24iOjMsImlhdCI6MTYyMzkxMDgyMSwiZXhwIjoxNjI1MjA2ODIxfQ.kvYztI4_846HTZrWgnMtNQ1NHCdqPnkBUxZ_Xy78cQs\"}');
+INSERT INTO `base_sys_log` VALUES ('7282', '2021-06-19 09:27:55.139031', '2021-06-19 09:27:55.139031', '1', '/admin/base/comm/permmenu', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7283', '2021-06-19 09:27:55.141060', '2021-06-19 09:27:55.141060', '1', '/admin/base/comm/person', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7284', '2021-06-19 09:27:58.438685', '2021-06-19 09:27:58.438685', '1', '/admin/machine/instruct/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7285', '2021-06-19 09:27:58.440716', '2021-06-19 09:27:58.440716', '1', '/admin/machine/instruct/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7286', '2021-06-19 09:38:34.976131', '2021-06-19 09:38:34.976131', '1', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7287', '2021-06-19 09:38:34.980368', '2021-06-19 09:38:34.980368', '1', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7288', '2021-06-19 09:39:29.999096', '2021-06-19 09:39:29.999096', '1', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7289', '2021-06-19 09:39:30.001407', '2021-06-19 09:39:30.001407', '1', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7290', '2021-06-19 09:41:32.723401', '2021-06-19 09:41:32.723401', '1', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7291', '2021-06-19 09:41:32.726439', '2021-06-19 09:41:32.726439', '1', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7292', '2021-06-19 09:43:48.156336', '2021-06-19 09:43:48.156336', '1', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7293', '2021-06-19 09:43:48.159061', '2021-06-19 09:43:48.159061', '1', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7294', '2021-06-19 09:45:32.177292', '2021-06-19 09:45:32.177292', '1', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7295', '2021-06-19 09:45:32.180511', '2021-06-19 09:45:32.180511', '1', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7296', '2021-06-19 09:45:34.910783', '2021-06-19 09:45:34.910783', '1', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7297', '2021-06-19 09:45:34.913055', '2021-06-19 09:45:34.913055', '1', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7298', '2021-06-19 09:46:00.525797', '2021-06-19 09:46:00.525797', '1', '/admin/base/comm/person', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7299', '2021-06-19 09:46:00.534571', '2021-06-19 09:46:00.534571', '1', '/admin/base/comm/permmenu', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7300', '2021-06-19 09:46:00.781252', '2021-06-19 09:46:00.781252', '1', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7301', '2021-06-19 09:46:00.783337', '2021-06-19 09:46:00.783337', '1', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7302', '2021-06-19 09:49:31.547108', '2021-06-19 09:49:31.547108', '1', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7303', '2021-06-19 09:49:31.551307', '2021-06-19 09:49:31.551307', '1', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7304', '2021-06-19 09:49:33.176598', '2021-06-19 09:49:33.176598', '1', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7305', '2021-06-19 09:49:33.178807', '2021-06-19 09:49:33.178807', '1', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7306', '2021-06-19 09:50:40.127192', '2021-06-19 09:50:40.127192', '1', '/admin/base/sys/menu/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7307', '2021-06-19 09:50:40.130102', '2021-06-19 09:50:40.130102', '1', '/admin/base/sys/menu/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7308', '2021-06-19 09:51:03.556747', '2021-06-19 09:51:03.556747', '1', '/admin/base/sys/role/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20,\"sort\":\"desc\",\"order\":\"createTime\"}');
+INSERT INTO `base_sys_log` VALUES ('7309', '2021-06-19 09:51:03.559109', '2021-06-19 09:51:03.559109', '1', '/admin/base/sys/role/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20,\"sort\":\"desc\",\"order\":\"createTime\"}');
+INSERT INTO `base_sys_log` VALUES ('7310', '2021-06-19 09:51:08.884729', '2021-06-19 09:51:08.884729', '1', '/admin/base/sys/menu/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7311', '2021-06-19 09:51:08.887569', '2021-06-19 09:51:08.887569', '1', '/admin/base/sys/menu/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7312', '2021-06-19 09:51:08.921714', '2021-06-19 09:51:08.921714', '1', '/admin/base/sys/department/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7313', '2021-06-19 09:51:08.926095', '2021-06-19 09:51:08.926095', '1', '/admin/base/sys/department/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7314', '2021-06-19 09:51:08.954844', '2021-06-19 09:51:08.954844', '1', '/admin/base/sys/role/info', '127.0.0.1', '本机地址', '{\"id\":\"13\"}');
+INSERT INTO `base_sys_log` VALUES ('7315', '2021-06-19 09:51:08.959090', '2021-06-19 09:51:08.959090', '1', '/admin/base/sys/role/info', '127.0.0.1', '本机地址', '{\"id\":\"13\"}');
+INSERT INTO `base_sys_log` VALUES ('7316', '2021-06-19 09:51:28.149015', '2021-06-19 09:51:28.149015', '1', '/admin/base/sys/department/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7317', '2021-06-19 09:51:28.151784', '2021-06-19 09:51:28.151784', '1', '/admin/base/sys/department/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7318', '2021-06-19 09:51:28.487934', '2021-06-19 09:51:28.487934', '1', '/admin/base/sys/user/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20,\"sort\":\"desc\",\"order\":\"createTime\"}');
+INSERT INTO `base_sys_log` VALUES ('7319', '2021-06-19 09:51:28.497021', '2021-06-19 09:51:28.497021', '1', '/admin/base/sys/user/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20,\"sort\":\"desc\",\"order\":\"createTime\"}');
+INSERT INTO `base_sys_log` VALUES ('7320', '2021-06-19 09:51:49.986565', '2021-06-19 09:51:49.986565', '1', '/admin/machine/workorder_code/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7321', '2021-06-19 09:51:49.988564', '2021-06-19 09:51:49.988564', '1', '/admin/machine/workorder_code/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7322', '2021-06-19 09:51:50.316560', '2021-06-19 09:51:50.316560', '1', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7323', '2021-06-19 09:51:50.318532', '2021-06-19 09:51:50.318532', '1', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7324', '2021-06-19 09:52:18.374519', '2021-06-19 09:52:18.374519', '1', '/admin/base/sys/menu/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7325', '2021-06-19 09:52:18.384886', '2021-06-19 09:52:18.384886', '1', '/admin/base/sys/menu/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7326', '2021-06-19 09:52:18.414865', '2021-06-19 09:52:18.414865', '1', '/admin/base/sys/department/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7327', '2021-06-19 09:52:18.423760', '2021-06-19 09:52:18.423760', '1', '/admin/base/sys/department/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7328', '2021-06-19 09:52:18.440682', '2021-06-19 09:52:18.440682', '1', '/admin/base/sys/role/info', '127.0.0.1', '本机地址', '{\"id\":\"10\"}');
+INSERT INTO `base_sys_log` VALUES ('7329', '2021-06-19 09:52:18.444077', '2021-06-19 09:52:18.444077', '1', '/admin/base/sys/role/info', '127.0.0.1', '本机地址', '{\"id\":\"10\"}');
+INSERT INTO `base_sys_log` VALUES ('7330', '2021-06-19 09:52:32.948969', '2021-06-19 09:52:32.948969', '1', '/admin/base/sys/role/update', '127.0.0.1', '本机地址', '{\"name\":\"总公司\",\"label\":\"admin-sys\",\"remark\":\"\",\"menuIdList\":[121,124,125,120,2,27,97,59,60,61,62,63,65,98,99,100,101,8,10,11,12,13,22,23,24,25,26,78,79,80,81,82,83,105,29,30,117,118,119,122],\"departmentIdList\":[1,11,14,15],\"relevance\":1,\"id\":10,\"createTime\":\"2021-02-26 14:15:38\",\"updateTime\":\"2021-04-01 09:10:57\",\"userId\":\"1\"}');
+INSERT INTO `base_sys_log` VALUES ('7331', '2021-06-19 09:52:32.951418', '2021-06-19 09:52:32.951418', '1', '/admin/base/sys/role/update', '127.0.0.1', '本机地址', '{\"name\":\"总公司\",\"label\":\"admin-sys\",\"remark\":\"\",\"menuIdList\":[121,124,125,120,2,27,97,59,60,61,62,63,65,98,99,100,101,8,10,11,12,13,22,23,24,25,26,78,79,80,81,82,83,105,29,30,117,118,119,122],\"departmentIdList\":[1,11,14,15],\"relevance\":1,\"id\":10,\"createTime\":\"2021-02-26 14:15:38\",\"updateTime\":\"2021-04-01 09:10:57\",\"userId\":\"1\"}');
+INSERT INTO `base_sys_log` VALUES ('7332', '2021-06-19 09:52:33.499459', '2021-06-19 09:52:33.499459', '1', '/admin/base/sys/role/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20,\"sort\":\"desc\",\"order\":\"createTime\"}');
+INSERT INTO `base_sys_log` VALUES ('7333', '2021-06-19 09:52:33.501522', '2021-06-19 09:52:33.501522', '1', '/admin/base/sys/role/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20,\"sort\":\"desc\",\"order\":\"createTime\"}');
+INSERT INTO `base_sys_log` VALUES ('7334', '2021-06-19 09:52:58.239549', '2021-06-19 09:52:58.239549', '1', '/admin/base/sys/menu/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7335', '2021-06-19 09:52:58.242610', '2021-06-19 09:52:58.242610', '1', '/admin/base/sys/menu/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7336', '2021-06-19 09:52:58.600014', '2021-06-19 09:52:58.600014', '1', '/admin/base/sys/menu/info', '127.0.0.1', '本机地址', '{\"id\":\"123\"}');
+INSERT INTO `base_sys_log` VALUES ('7337', '2021-06-19 09:52:58.602487', '2021-06-19 09:52:58.602487', '1', '/admin/base/sys/menu/info', '127.0.0.1', '本机地址', '{\"id\":\"123\"}');
+INSERT INTO `base_sys_log` VALUES ('7338', '2021-06-19 09:53:03.375588', '2021-06-19 09:53:03.375588', '1', '/admin/base/sys/menu/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7339', '2021-06-19 09:53:03.378917', '2021-06-19 09:53:03.378917', '1', '/admin/base/sys/menu/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7340', '2021-06-19 09:53:03.387397', '2021-06-19 09:53:03.387397', '1', '/admin/base/sys/menu/info', '127.0.0.1', '本机地址', '{\"id\":\"123\"}');
+INSERT INTO `base_sys_log` VALUES ('7341', '2021-06-19 09:53:03.391264', '2021-06-19 09:53:03.391264', '1', '/admin/base/sys/menu/info', '127.0.0.1', '本机地址', '{\"id\":\"123\"}');
+INSERT INTO `base_sys_log` VALUES ('7342', '2021-06-19 09:53:05.343075', '2021-06-19 09:53:05.343075', '1', '/admin/base/sys/menu/update', '127.0.0.1', '本机地址', '{\"type\":1,\"name\":\"设备错误码\",\"parentId\":\"122\",\"router\":null,\"keepAlive\":true,\"isShow\":false,\"viewPath\":\"cool/modules/machine/views/deviceErrorCode.vue\",\"icon\":\"icon-command\",\"orderNum\":0,\"id\":123,\"createTime\":\"2021-03-30 16:28:30\",\"updateTime\":\"2021-03-30 16:28:30\"}');
+INSERT INTO `base_sys_log` VALUES ('7343', '2021-06-19 09:53:05.347346', '2021-06-19 09:53:05.347346', '1', '/admin/base/sys/menu/update', '127.0.0.1', '本机地址', '{\"type\":1,\"name\":\"设备错误码\",\"parentId\":\"122\",\"router\":null,\"keepAlive\":true,\"isShow\":false,\"viewPath\":\"cool/modules/machine/views/deviceErrorCode.vue\",\"icon\":\"icon-command\",\"orderNum\":0,\"id\":123,\"createTime\":\"2021-03-30 16:28:30\",\"updateTime\":\"2021-03-30 16:28:30\"}');
+INSERT INTO `base_sys_log` VALUES ('7344', '2021-06-19 09:53:11.664478', '2021-06-19 09:53:11.664478', '1', '/admin/base/comm/permmenu', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7345', '2021-06-19 09:53:11.670013', '2021-06-19 09:53:11.670013', '1', '/admin/base/comm/person', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7346', '2021-06-19 09:53:11.880263', '2021-06-19 09:53:11.880263', '1', '/admin/base/sys/menu/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7347', '2021-06-19 09:53:11.882173', '2021-06-19 09:53:11.882173', '1', '/admin/base/sys/menu/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7348', '2021-06-19 09:53:14.279480', '2021-06-19 09:53:14.279480', '1', '/admin/machine/instruct/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7349', '2021-06-19 09:53:14.281509', '2021-06-19 09:53:14.281509', '1', '/admin/machine/instruct/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7350', '2021-06-19 09:54:20.150256', '2021-06-19 09:54:20.150256', '1', '/admin/machine/instruct/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7351', '2021-06-19 09:54:20.168254', '2021-06-19 09:54:20.168254', '1', '/admin/machine/instruct/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7352', '2021-06-19 09:55:58.879342', '2021-06-19 09:55:58.879342', '1', '/admin/machine/instruct/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7353', '2021-06-19 09:55:58.881554', '2021-06-19 09:55:58.881554', '1', '/admin/machine/instruct/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7354', '2021-06-19 09:56:32.364605', '2021-06-19 09:56:32.364605', '1', '/admin/machine/instruct/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7355', '2021-06-19 09:56:32.366722', '2021-06-19 09:56:32.366722', '1', '/admin/machine/instruct/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7356', '2021-06-19 09:56:53.435672', '2021-06-19 09:56:53.435672', '1', '/admin/base/comm/permmenu', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7357', '2021-06-19 09:56:53.447674', '2021-06-19 09:56:53.447674', '1', '/admin/base/comm/person', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7358', '2021-06-19 09:56:53.679562', '2021-06-19 09:56:53.679562', '1', '/admin/machine/instruct/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7359', '2021-06-19 09:56:53.686328', '2021-06-19 09:56:53.686328', '1', '/admin/machine/instruct/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7360', '2021-06-19 09:56:56.995271', '2021-06-19 09:56:56.995271', '1', '/admin/machine/instruct/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20,\"query\":2}');
+INSERT INTO `base_sys_log` VALUES ('7361', '2021-06-19 09:56:56.997193', '2021-06-19 09:56:56.997193', '1', '/admin/machine/instruct/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20,\"query\":2}');
+INSERT INTO `base_sys_log` VALUES ('7362', '2021-06-19 09:56:58.652187', '2021-06-19 09:56:58.652187', '1', '/admin/machine/instruct/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20,\"query\":1}');
+INSERT INTO `base_sys_log` VALUES ('7363', '2021-06-19 09:56:58.654264', '2021-06-19 09:56:58.654264', '1', '/admin/machine/instruct/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20,\"query\":1}');
+INSERT INTO `base_sys_log` VALUES ('7364', '2021-06-19 09:57:07.509647', '2021-06-19 09:57:07.509647', '1', '/admin/machine/instruct/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20,\"query\":2}');
+INSERT INTO `base_sys_log` VALUES ('7365', '2021-06-19 09:57:07.512053', '2021-06-19 09:57:07.512053', '1', '/admin/machine/instruct/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20,\"query\":2}');
+INSERT INTO `base_sys_log` VALUES ('7366', '2021-06-19 09:57:13.775991', '2021-06-19 09:57:13.775991', '1', '/admin/machine/instruct/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20,\"query\":1}');
+INSERT INTO `base_sys_log` VALUES ('7367', '2021-06-19 09:57:13.778233', '2021-06-19 09:57:13.778233', '1', '/admin/machine/instruct/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20,\"query\":1}');
+INSERT INTO `base_sys_log` VALUES ('7368', '2021-06-19 09:57:22.517747', '2021-06-19 09:57:22.517747', '1', '/admin/machine/instruct/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20,\"query\":1,\"type\":2}');
+INSERT INTO `base_sys_log` VALUES ('7369', '2021-06-19 09:57:22.519781', '2021-06-19 09:57:22.519781', '1', '/admin/machine/instruct/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20,\"query\":1,\"type\":2}');
+INSERT INTO `base_sys_log` VALUES ('7370', '2021-06-19 09:57:25.151914', '2021-06-19 09:57:25.151914', '1', '/admin/machine/instruct/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20,\"query\":1,\"type\":1}');
+INSERT INTO `base_sys_log` VALUES ('7371', '2021-06-19 09:57:25.153830', '2021-06-19 09:57:25.153830', '1', '/admin/machine/instruct/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20,\"query\":1,\"type\":1}');
+INSERT INTO `base_sys_log` VALUES ('7372', '2021-06-19 09:57:30.603065', '2021-06-19 09:57:30.603065', '1', '/admin/machine/instruct/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20,\"query\":1,\"type\":2}');
+INSERT INTO `base_sys_log` VALUES ('7373', '2021-06-19 09:57:30.605178', '2021-06-19 09:57:30.605178', '1', '/admin/machine/instruct/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20,\"query\":1,\"type\":2}');
+INSERT INTO `base_sys_log` VALUES ('7374', '2021-06-19 09:57:42.341518', '2021-06-19 09:57:42.341518', '1', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7375', '2021-06-19 09:57:42.344624', '2021-06-19 09:57:42.344624', '1', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7376', '2021-06-19 09:57:52.201201', '2021-06-19 09:57:52.201201', '1', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7377', '2021-06-19 09:57:52.203306', '2021-06-19 09:57:52.203306', '1', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7378', '2021-06-19 09:58:08.049911', '2021-06-19 09:58:08.049911', '1', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7379', '2021-06-19 09:58:08.051920', '2021-06-19 09:58:08.051920', '1', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7380', '2021-06-19 09:58:09.584974', '2021-06-19 09:58:09.584974', '1', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', '{\"type\":1}');
+INSERT INTO `base_sys_log` VALUES ('7381', '2021-06-19 09:58:09.587143', '2021-06-19 09:58:09.587143', '1', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', '{\"type\":1}');
+INSERT INTO `base_sys_log` VALUES ('7382', '2021-06-19 09:58:15.050197', '2021-06-19 09:58:15.050197', '1', '/admin/machine/mqtt/sendmsg', '127.0.0.1', '本机地址', '{\"topic\":\"no003\",\"code\":\"0xb7\"}');
+INSERT INTO `base_sys_log` VALUES ('7383', '2021-06-19 09:58:31.208310', '2021-06-19 09:58:31.208310', '1', '/admin/machine/mqtt/sendmsg', '127.0.0.1', '本机地址', '{\"topic\":\"no003\",\"code\":\"0x9a\"}');
+INSERT INTO `base_sys_log` VALUES ('7384', '2021-06-19 09:58:37.373744', '2021-06-19 09:58:37.373744', '1', '/admin/machine/mqtt/sendmsg', '127.0.0.1', '本机地址', '{\"topic\":\"no003\",\"code\":\"0xa2\"}');
+INSERT INTO `base_sys_log` VALUES ('7385', '2021-06-19 09:59:28.787658', '2021-06-19 09:59:28.787658', '1', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7386', '2021-06-19 09:59:28.790290', '2021-06-19 09:59:28.790290', '1', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7387', '2021-06-19 09:59:31.722433', '2021-06-19 09:59:31.722433', '1', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', '{\"type\":1}');
+INSERT INTO `base_sys_log` VALUES ('7388', '2021-06-19 09:59:31.725721', '2021-06-19 09:59:31.725721', '1', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', '{\"type\":1}');
+INSERT INTO `base_sys_log` VALUES ('7389', '2021-06-19 09:59:32.648653', '2021-06-19 09:59:32.648653', '1', '/admin/machine/mqtt/sendmsg', '127.0.0.1', '本机地址', '{\"topic\":\"no003\",\"code\":\"0x9a\"}');
+INSERT INTO `base_sys_log` VALUES ('7390', '2021-06-19 09:59:52.790897', '2021-06-19 09:59:52.790897', '1', '/admin/base/sys/department/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7391', '2021-06-19 09:59:52.799763', '2021-06-19 09:59:52.799763', '1', '/admin/base/sys/department/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7392', '2021-06-19 09:59:52.842948', '2021-06-19 09:59:52.842948', '1', '/admin/base/sys/user/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20,\"sort\":\"desc\",\"order\":\"createTime\"}');
+INSERT INTO `base_sys_log` VALUES ('7393', '2021-06-19 09:59:52.846327', '2021-06-19 09:59:52.846327', '1', '/admin/base/sys/user/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20,\"sort\":\"desc\",\"order\":\"createTime\"}');
+INSERT INTO `base_sys_log` VALUES ('7394', '2021-06-19 10:05:05.999379', '2021-06-19 10:05:05.999379', null, '/admin/base/open/login', '127.0.0.1', '本机地址', '{\"username\":\"gcsa\",\"password\":\"123456\"}');
+INSERT INTO `base_sys_log` VALUES ('7395', '2021-06-19 12:43:17.571733', '2021-06-19 12:43:17.571733', null, '/admin/base/open/login', '127.0.0.1', '本机地址', '{\"username\":\"gcsa\",\"password\":\"123456\"}');
+INSERT INTO `base_sys_log` VALUES ('7396', '2021-06-19 12:43:17.706975', '2021-06-19 12:43:17.706975', '35', '/admin/base/comm/person', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7397', '2021-06-19 12:43:17.798432', '2021-06-19 12:43:17.798432', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":1}');
+INSERT INTO `base_sys_log` VALUES ('7398', '2021-06-19 12:43:17.799938', '2021-06-19 12:43:17.799938', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":1}');
+INSERT INTO `base_sys_log` VALUES ('7399', '2021-06-19 12:43:20.789444', '2021-06-19 12:43:20.789444', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":3}');
+INSERT INTO `base_sys_log` VALUES ('7400', '2021-06-19 12:43:20.790680', '2021-06-19 12:43:20.790680', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":3}');
+INSERT INTO `base_sys_log` VALUES ('7401', '2021-06-19 12:43:21.526387', '2021-06-19 12:43:21.526387', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":4}');
+INSERT INTO `base_sys_log` VALUES ('7402', '2021-06-19 12:43:21.525181', '2021-06-19 12:43:21.525181', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":4}');
+INSERT INTO `base_sys_log` VALUES ('7403', '2021-06-19 12:43:21.790023', '2021-06-19 12:43:21.790023', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":1}');
+INSERT INTO `base_sys_log` VALUES ('7404', '2021-06-19 12:43:21.791048', '2021-06-19 12:43:21.791048', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":1}');
+INSERT INTO `base_sys_log` VALUES ('7405', '2021-06-19 12:43:22.905977', '2021-06-19 12:43:22.905977', '35', '/admin/machine/workorder/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7406', '2021-06-19 12:43:22.906947', '2021-06-19 12:43:22.906947', '35', '/admin/machine/workorder/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7407', '2021-06-19 12:43:24.129174', '2021-06-19 12:43:24.129174', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":1}');
+INSERT INTO `base_sys_log` VALUES ('7408', '2021-06-19 12:43:24.130224', '2021-06-19 12:43:24.130224', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":1}');
+INSERT INTO `base_sys_log` VALUES ('7409', '2021-06-19 12:43:25.325057', '2021-06-19 12:43:25.325057', '35', '/admin/machine/workorder/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7410', '2021-06-19 12:43:25.326050', '2021-06-19 12:43:25.326050', '35', '/admin/machine/workorder/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7411', '2021-06-19 12:45:57.180837', '2021-06-19 12:45:57.180837', '35', '/admin/machine/workorder/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7412', '2021-06-19 12:45:57.183291', '2021-06-19 12:45:57.183291', '35', '/admin/machine/workorder/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7413', '2021-06-19 12:46:34.541849', '2021-06-19 12:46:34.541849', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":1}');
+INSERT INTO `base_sys_log` VALUES ('7414', '2021-06-19 12:46:34.544541', '2021-06-19 12:46:34.544541', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":1}');
+INSERT INTO `base_sys_log` VALUES ('7415', '2021-06-19 12:46:36.169622', '2021-06-19 12:46:36.169622', '35', '/admin/machine/workorder/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7416', '2021-06-19 12:46:36.171160', '2021-06-19 12:46:36.171160', '35', '/admin/machine/workorder/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7417', '2021-06-19 12:46:37.805042', '2021-06-19 12:46:37.805042', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":1}');
+INSERT INTO `base_sys_log` VALUES ('7418', '2021-06-19 12:46:37.806946', '2021-06-19 12:46:37.806946', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":1}');
+INSERT INTO `base_sys_log` VALUES ('7419', '2021-06-19 12:46:38.539330', '2021-06-19 12:46:38.539330', '35', '/admin/machine/workorder/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7420', '2021-06-19 12:46:38.540632', '2021-06-19 12:46:38.540632', '35', '/admin/machine/workorder/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7421', '2021-06-19 12:48:13.271187', '2021-06-19 12:48:13.271187', '35', '/admin/machine/workorder/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7422', '2021-06-19 12:48:13.272224', '2021-06-19 12:48:13.272224', '35', '/admin/machine/workorder/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7423', '2021-06-19 12:48:22.409899', '2021-06-19 12:48:22.409899', '35', '/admin/machine/workorder/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7424', '2021-06-19 12:48:22.411624', '2021-06-19 12:48:22.411624', '35', '/admin/machine/workorder/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7425', '2021-06-19 12:48:36.750654', '2021-06-19 12:48:36.750654', '35', '/admin/machine/workorder/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7426', '2021-06-19 12:48:36.751681', '2021-06-19 12:48:36.751681', '35', '/admin/machine/workorder/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7427', '2021-06-19 12:50:20.493903', '2021-06-19 12:50:20.493903', '35', '/admin/machine/workorder/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7428', '2021-06-19 12:50:20.494862', '2021-06-19 12:50:20.494862', '35', '/admin/machine/workorder/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7429', '2021-06-19 12:51:15.483550', '2021-06-19 12:51:15.483550', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":1}');
+INSERT INTO `base_sys_log` VALUES ('7430', '2021-06-19 12:51:15.484602', '2021-06-19 12:51:15.484602', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":1}');
+INSERT INTO `base_sys_log` VALUES ('7431', '2021-06-19 12:51:19.937440', '2021-06-19 12:51:19.937440', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":3}');
+INSERT INTO `base_sys_log` VALUES ('7432', '2021-06-19 12:51:19.938612', '2021-06-19 12:51:19.938612', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":3}');
+INSERT INTO `base_sys_log` VALUES ('7433', '2021-06-19 12:51:20.761480', '2021-06-19 12:51:20.761480', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":1}');
+INSERT INTO `base_sys_log` VALUES ('7434', '2021-06-19 12:51:20.762593', '2021-06-19 12:51:20.762593', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":1}');
+INSERT INTO `base_sys_log` VALUES ('7435', '2021-06-19 12:51:21.008480', '2021-06-19 12:51:21.008480', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":3}');
+INSERT INTO `base_sys_log` VALUES ('7436', '2021-06-19 12:51:21.009639', '2021-06-19 12:51:21.009639', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":3}');
+INSERT INTO `base_sys_log` VALUES ('7437', '2021-06-19 12:51:22.459081', '2021-06-19 12:51:22.459081', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":1}');
+INSERT INTO `base_sys_log` VALUES ('7438', '2021-06-19 12:51:22.460034', '2021-06-19 12:51:22.460034', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":1}');
+INSERT INTO `base_sys_log` VALUES ('7439', '2021-06-19 12:51:23.475871', '2021-06-19 12:51:23.475871', '35', '/admin/machine/workorder/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7440', '2021-06-19 12:51:23.476971', '2021-06-19 12:51:23.476971', '35', '/admin/machine/workorder/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7441', '2021-06-19 12:51:25.508521', '2021-06-19 12:51:25.508521', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":1}');
+INSERT INTO `base_sys_log` VALUES ('7442', '2021-06-19 12:51:25.509530', '2021-06-19 12:51:25.509530', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":1}');
+INSERT INTO `base_sys_log` VALUES ('7443', '2021-06-19 12:51:29.285213', '2021-06-19 12:51:29.285213', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":4}');
+INSERT INTO `base_sys_log` VALUES ('7444', '2021-06-19 12:51:29.286862', '2021-06-19 12:51:29.286862', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":4}');
+INSERT INTO `base_sys_log` VALUES ('7445', '2021-06-19 12:51:29.557950', '2021-06-19 12:51:29.557950', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":3}');
+INSERT INTO `base_sys_log` VALUES ('7446', '2021-06-19 12:51:29.559087', '2021-06-19 12:51:29.559087', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":3}');
+INSERT INTO `base_sys_log` VALUES ('7447', '2021-06-19 12:51:29.919524', '2021-06-19 12:51:29.919524', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":1}');
+INSERT INTO `base_sys_log` VALUES ('7448', '2021-06-19 12:51:29.920898', '2021-06-19 12:51:29.920898', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":1}');
+INSERT INTO `base_sys_log` VALUES ('7449', '2021-06-19 12:51:31.631566', '2021-06-19 12:51:31.631566', '35', '/admin/machine/workorder/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7450', '2021-06-19 12:51:31.632775', '2021-06-19 12:51:31.632775', '35', '/admin/machine/workorder/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7451', '2021-06-19 12:51:34.057349', '2021-06-19 12:51:34.057349', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":1}');
+INSERT INTO `base_sys_log` VALUES ('7452', '2021-06-19 12:51:34.058268', '2021-06-19 12:51:34.058268', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":1}');
+INSERT INTO `base_sys_log` VALUES ('7453', '2021-06-19 12:51:35.614755', '2021-06-19 12:51:35.614755', '35', '/admin/machine/workorder/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7454', '2021-06-19 12:51:35.615671', '2021-06-19 12:51:35.615671', '35', '/admin/machine/workorder/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7455', '2021-06-19 12:51:36.391706', '2021-06-19 12:51:36.391706', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":1}');
+INSERT INTO `base_sys_log` VALUES ('7456', '2021-06-19 12:51:36.392654', '2021-06-19 12:51:36.392654', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":1}');
+INSERT INTO `base_sys_log` VALUES ('7457', '2021-06-19 12:51:40.256443', '2021-06-19 12:51:40.256443', '35', '/admin/machine/workorder/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7458', '2021-06-19 12:51:40.257309', '2021-06-19 12:51:40.257309', '35', '/admin/machine/workorder/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7459', '2021-06-19 12:51:41.836525', '2021-06-19 12:51:41.836525', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":1}');
+INSERT INTO `base_sys_log` VALUES ('7460', '2021-06-19 12:51:41.837478', '2021-06-19 12:51:41.837478', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":1}');
+INSERT INTO `base_sys_log` VALUES ('7461', '2021-06-19 12:51:42.959396', '2021-06-19 12:51:42.959396', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7462', '2021-06-19 12:51:42.960774', '2021-06-19 12:51:42.960774', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7463', '2021-06-19 12:52:50.029739', '2021-06-19 12:52:50.029739', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7464', '2021-06-19 12:52:50.030683', '2021-06-19 12:52:50.030683', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7465', '2021-06-19 12:53:04.045021', '2021-06-19 12:53:04.045021', '35', '/admin/machine/device/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7466', '2021-06-19 12:53:04.045937', '2021-06-19 12:53:04.045937', '35', '/admin/machine/device/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7467', '2021-06-19 12:53:08.894871', '2021-06-19 12:53:08.894871', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7468', '2021-06-19 12:53:08.897241', '2021-06-19 12:53:08.897241', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7469', '2021-06-19 12:53:10.251826', '2021-06-19 12:53:10.251826', '35', '/admin/machine/device/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7470', '2021-06-19 12:53:10.252669', '2021-06-19 12:53:10.252669', '35', '/admin/machine/device/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7471', '2021-06-19 12:53:11.338249', '2021-06-19 12:53:11.338249', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7472', '2021-06-19 12:53:11.339546', '2021-06-19 12:53:11.339546', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7473', '2021-06-19 12:53:34.343070', '2021-06-19 12:53:34.343070', '35', '/admin/machine/device/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7474', '2021-06-19 12:53:34.343823', '2021-06-19 12:53:34.343823', '35', '/admin/machine/device/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7475', '2021-06-19 12:53:36.271678', '2021-06-19 12:53:36.271678', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7476', '2021-06-19 12:53:36.272532', '2021-06-19 12:53:36.272532', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7477', '2021-06-19 12:53:37.247630', '2021-06-19 12:53:37.247630', '35', '/admin/machine/device/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7478', '2021-06-19 12:53:37.248570', '2021-06-19 12:53:37.248570', '35', '/admin/machine/device/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7479', '2021-06-19 12:53:41.607689', '2021-06-19 12:53:41.607689', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7480', '2021-06-19 12:53:41.610811', '2021-06-19 12:53:41.610811', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7481', '2021-06-19 12:53:42.958795', '2021-06-19 12:53:42.958795', '35', '/admin/machine/device/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7482', '2021-06-19 12:53:42.959651', '2021-06-19 12:53:42.959651', '35', '/admin/machine/device/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7483', '2021-06-19 12:53:45.254389', '2021-06-19 12:53:45.254389', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7484', '2021-06-19 12:53:45.255320', '2021-06-19 12:53:45.255320', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7485', '2021-06-19 12:53:48.767359', '2021-06-19 12:53:48.767359', '35', '/admin/machine/device/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7486', '2021-06-19 12:53:48.769487', '2021-06-19 12:53:48.769487', '35', '/admin/machine/device/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7487', '2021-06-19 12:53:50.206932', '2021-06-19 12:53:50.206932', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7488', '2021-06-19 12:53:50.207799', '2021-06-19 12:53:50.207799', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7489', '2021-06-19 12:54:05.775733', '2021-06-19 12:54:05.775733', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7490', '2021-06-19 12:54:05.777271', '2021-06-19 12:54:05.777271', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7491', '2021-06-19 12:54:40.982808', '2021-06-19 12:54:40.982808', '35', '/admin/machine/device/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7492', '2021-06-19 12:54:40.983692', '2021-06-19 12:54:40.983692', '35', '/admin/machine/device/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7493', '2021-06-19 12:54:53.174006', '2021-06-19 12:54:53.174006', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7494', '2021-06-19 12:54:53.174860', '2021-06-19 12:54:53.174860', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7495', '2021-06-19 12:54:55.054023', '2021-06-19 12:54:55.054023', '35', '/admin/machine/device/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7496', '2021-06-19 12:54:55.055451', '2021-06-19 12:54:55.055451', '35', '/admin/machine/device/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7497', '2021-06-19 12:54:58.344331', '2021-06-19 12:54:58.344331', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7498', '2021-06-19 12:54:58.345331', '2021-06-19 12:54:58.345331', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7499', '2021-06-19 12:55:34.682359', '2021-06-19 12:55:34.682359', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7500', '2021-06-19 12:55:34.684599', '2021-06-19 12:55:34.684599', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7501', '2021-06-19 12:57:33.213340', '2021-06-19 12:57:33.213340', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7502', '2021-06-19 12:57:33.214171', '2021-06-19 12:57:33.214171', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7503', '2021-06-19 12:57:36.576539', '2021-06-19 12:57:36.576539', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7504', '2021-06-19 12:57:36.578912', '2021-06-19 12:57:36.578912', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7505', '2021-06-19 12:57:45.596462', '2021-06-19 12:57:45.596462', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7506', '2021-06-19 12:57:45.597249', '2021-06-19 12:57:45.597249', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7507', '2021-06-19 12:58:13.380430', '2021-06-19 12:58:13.380430', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7508', '2021-06-19 12:58:13.381376', '2021-06-19 12:58:13.381376', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7509', '2021-06-19 12:58:37.115490', '2021-06-19 12:58:37.115490', '35', '/admin/machine/device/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7510', '2021-06-19 12:58:37.116704', '2021-06-19 12:58:37.116704', '35', '/admin/machine/device/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7511', '2021-06-19 12:58:38.431395', '2021-06-19 12:58:38.431395', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7512', '2021-06-19 12:58:38.432855', '2021-06-19 12:58:38.432855', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7513', '2021-06-19 12:58:49.272576', '2021-06-19 12:58:49.272576', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7514', '2021-06-19 12:58:49.273385', '2021-06-19 12:58:49.273385', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7515', '2021-06-19 12:59:15.961621', '2021-06-19 12:59:15.961621', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7516', '2021-06-19 12:59:15.962241', '2021-06-19 12:59:15.962241', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7517', '2021-06-19 13:00:39.112865', '2021-06-19 13:00:39.112865', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7518', '2021-06-19 13:00:39.113758', '2021-06-19 13:00:39.113758', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7519', '2021-06-19 13:00:56.700639', '2021-06-19 13:00:56.700639', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7520', '2021-06-19 13:00:56.701509', '2021-06-19 13:00:56.701509', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7521', '2021-06-19 13:01:12.023000', '2021-06-19 13:01:12.023000', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7522', '2021-06-19 13:01:12.023887', '2021-06-19 13:01:12.023887', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7523', '2021-06-19 13:01:13.987097', '2021-06-19 13:01:13.987097', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7524', '2021-06-19 13:01:13.989262', '2021-06-19 13:01:13.989262', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7525', '2021-06-19 13:01:18.276316', '2021-06-19 13:01:18.276316', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7526', '2021-06-19 13:01:18.279263', '2021-06-19 13:01:18.279263', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7527', '2021-06-19 13:01:37.231556', '2021-06-19 13:01:37.231556', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7528', '2021-06-19 13:01:37.232717', '2021-06-19 13:01:37.232717', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7529', '2021-06-19 13:03:20.444399', '2021-06-19 13:03:20.444399', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7530', '2021-06-19 13:03:20.445280', '2021-06-19 13:03:20.445280', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7531', '2021-06-19 13:03:42.413815', '2021-06-19 13:03:42.413815', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7532', '2021-06-19 13:03:42.415476', '2021-06-19 13:03:42.415476', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7533', '2021-06-19 13:04:25.848024', '2021-06-19 13:04:25.848024', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7534', '2021-06-19 13:04:25.849679', '2021-06-19 13:04:25.849679', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7535', '2021-06-19 13:05:29.778856', '2021-06-19 13:05:29.778856', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7536', '2021-06-19 13:05:29.779690', '2021-06-19 13:05:29.779690', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7537', '2021-06-19 13:05:44.786393', '2021-06-19 13:05:44.786393', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7538', '2021-06-19 13:05:44.787500', '2021-06-19 13:05:44.787500', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7539', '2021-06-19 13:05:53.429490', '2021-06-19 13:05:53.429490', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7540', '2021-06-19 13:05:53.430638', '2021-06-19 13:05:53.430638', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7541', '2021-06-19 13:06:04.298390', '2021-06-19 13:06:04.298390', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7542', '2021-06-19 13:06:04.299604', '2021-06-19 13:06:04.299604', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7543', '2021-06-19 13:06:29.975013', '2021-06-19 13:06:29.975013', '35', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7544', '2021-06-19 13:06:29.976195', '2021-06-19 13:06:29.976195', '35', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7545', '2021-06-19 13:06:30.202445', '2021-06-19 13:06:30.202445', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7546', '2021-06-19 13:06:30.204825', '2021-06-19 13:06:30.204825', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7547', '2021-06-19 13:06:39.575705', '2021-06-19 13:06:39.575705', '35', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7548', '2021-06-19 13:06:39.576474', '2021-06-19 13:06:39.576474', '35', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7549', '2021-06-19 13:06:39.616288', '2021-06-19 13:06:39.616288', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7550', '2021-06-19 13:06:39.618548', '2021-06-19 13:06:39.618548', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7551', '2021-06-19 13:06:56.535447', '2021-06-19 13:06:56.535447', '35', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', '{\"type\":1}');
+INSERT INTO `base_sys_log` VALUES ('7552', '2021-06-19 13:06:56.549125', '2021-06-19 13:06:56.549125', '35', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', '{\"type\":1}');
+INSERT INTO `base_sys_log` VALUES ('7553', '2021-06-19 13:06:56.583832', '2021-06-19 13:06:56.583832', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7554', '2021-06-19 13:06:56.592963', '2021-06-19 13:06:56.592963', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7555', '2021-06-19 13:08:26.643633', '2021-06-19 13:08:26.643633', '35', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', '{\"type\":1}');
+INSERT INTO `base_sys_log` VALUES ('7556', '2021-06-19 13:08:26.645163', '2021-06-19 13:08:26.645163', '35', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', '{\"type\":1}');
+INSERT INTO `base_sys_log` VALUES ('7557', '2021-06-19 13:08:26.659263', '2021-06-19 13:08:26.659263', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7558', '2021-06-19 13:08:26.665216', '2021-06-19 13:08:26.665216', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7559', '2021-06-19 13:08:28.443005', '2021-06-19 13:08:28.443005', '35', '/admin/machine/device/info', '127.0.0.1', '本机地址', '{\"id\":\"4\"}');
+INSERT INTO `base_sys_log` VALUES ('7560', '2021-06-19 13:08:28.444059', '2021-06-19 13:08:28.444059', '35', '/admin/machine/device/info', '127.0.0.1', '本机地址', '{\"id\":\"4\"}');
+INSERT INTO `base_sys_log` VALUES ('7561', '2021-06-19 13:08:29.419360', '2021-06-19 13:08:29.419360', '35', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', '{\"type\":1}');
+INSERT INTO `base_sys_log` VALUES ('7562', '2021-06-19 13:08:29.420292', '2021-06-19 13:08:29.420292', '35', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', '{\"type\":1}');
+INSERT INTO `base_sys_log` VALUES ('7563', '2021-06-19 13:08:29.423445', '2021-06-19 13:08:29.423445', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7564', '2021-06-19 13:08:29.425489', '2021-06-19 13:08:29.425489', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7565', '2021-06-19 13:09:04.637735', '2021-06-19 13:09:04.637735', '35', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', '{\"type\":1}');
+INSERT INTO `base_sys_log` VALUES ('7566', '2021-06-19 13:09:04.638818', '2021-06-19 13:09:04.638818', '35', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', '{\"type\":1}');
+INSERT INTO `base_sys_log` VALUES ('7567', '2021-06-19 13:09:04.848279', '2021-06-19 13:09:04.848279', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7568', '2021-06-19 13:09:04.849223', '2021-06-19 13:09:04.849223', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7569', '2021-06-19 13:10:02.862803', '2021-06-19 13:10:02.862803', '35', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', '{\"type\":1}');
+INSERT INTO `base_sys_log` VALUES ('7570', '2021-06-19 13:10:02.863853', '2021-06-19 13:10:02.863853', '35', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', '{\"type\":1}');
+INSERT INTO `base_sys_log` VALUES ('7571', '2021-06-19 13:10:02.875937', '2021-06-19 13:10:02.875937', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7572', '2021-06-19 13:10:02.876723', '2021-06-19 13:10:02.876723', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7573', '2021-06-19 13:11:05.516602', '2021-06-19 13:11:05.516602', '35', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', '{\"type\":1}');
+INSERT INTO `base_sys_log` VALUES ('7574', '2021-06-19 13:11:05.518036', '2021-06-19 13:11:05.518036', '35', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', '{\"type\":1}');
+INSERT INTO `base_sys_log` VALUES ('7575', '2021-06-19 13:11:05.761447', '2021-06-19 13:11:05.761447', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7576', '2021-06-19 13:11:05.762292', '2021-06-19 13:11:05.762292', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7577', '2021-06-19 13:11:14.742128', '2021-06-19 13:11:14.742128', '35', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', '{\"type\":1}');
+INSERT INTO `base_sys_log` VALUES ('7578', '2021-06-19 13:11:14.742725', '2021-06-19 13:11:14.742725', '35', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', '{\"type\":1}');
+INSERT INTO `base_sys_log` VALUES ('7579', '2021-06-19 13:11:15.056495', '2021-06-19 13:11:15.056495', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7580', '2021-06-19 13:11:15.058419', '2021-06-19 13:11:15.058419', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7581', '2021-06-19 13:11:18.954558', '2021-06-19 13:11:18.954558', '35', '/admin/machine/mqtt/sendmsg', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7582', '2021-06-19 13:11:30.285502', '2021-06-19 13:11:30.285502', '35', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', '{\"type\":1}');
+INSERT INTO `base_sys_log` VALUES ('7583', '2021-06-19 13:11:30.287871', '2021-06-19 13:11:30.287871', '35', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', '{\"type\":1}');
+INSERT INTO `base_sys_log` VALUES ('7584', '2021-06-19 13:11:30.601974', '2021-06-19 13:11:30.601974', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7585', '2021-06-19 13:11:30.603686', '2021-06-19 13:11:30.603686', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7586', '2021-06-19 13:13:14.597981', '2021-06-19 13:13:14.597981', '35', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', '{\"type\":1}');
+INSERT INTO `base_sys_log` VALUES ('7587', '2021-06-19 13:13:14.599365', '2021-06-19 13:13:14.599365', '35', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', '{\"type\":1}');
+INSERT INTO `base_sys_log` VALUES ('7588', '2021-06-19 13:13:14.612968', '2021-06-19 13:13:14.612968', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7589', '2021-06-19 13:13:14.621037', '2021-06-19 13:13:14.621037', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7590', '2021-06-19 13:13:45.255226', '2021-06-19 13:13:45.255226', null, '/admin/base/open/refreshToken', '127.0.0.1', '本机地址', '{\"refreshToken\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc1JlZnJlc2giOnRydWUsInJvbGVJZHMiOlsiMSJdLCJ1c2VybmFtZSI6ImFkbWluIiwidXNlcklkIjoxLCJwYXNzd29yZFZlcnNpb24iOjMsImlhdCI6MTYyNDA2NjA3NCwiZXhwIjoxNjI1MzYyMDc0fQ.KWhIzDhEd_asz6d5KOhwT-kUI9pvopMHpBHo7ucj8Fg\"}');
+INSERT INTO `base_sys_log` VALUES ('7591', '2021-06-19 13:13:45.537483', '2021-06-19 13:13:45.537483', '1', '/admin/base/comm/permmenu', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7592', '2021-06-19 13:13:45.539244', '2021-06-19 13:13:45.539244', '1', '/admin/base/comm/person', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7593', '2021-06-19 13:14:24.530994', '2021-06-19 13:14:24.530994', '1', '/admin/machine/instruct/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7594', '2021-06-19 13:14:24.532105', '2021-06-19 13:14:24.532105', '1', '/admin/machine/instruct/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7595', '2021-06-19 13:14:24.965177', '2021-06-19 13:14:24.965177', '1', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7596', '2021-06-19 13:14:24.966173', '2021-06-19 13:14:24.966173', '1', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7597', '2021-06-19 13:14:28.943238', '2021-06-19 13:14:28.943238', '1', '/admin/base/sys/user/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7598', '2021-06-19 13:14:28.944186', '2021-06-19 13:14:28.944186', '1', '/admin/base/sys/user/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7599', '2021-06-19 13:14:28.946241', '2021-06-19 13:14:28.946241', '1', '/admin/machine/device/info', '127.0.0.1', '本机地址', '{\"id\":\"5\"}');
+INSERT INTO `base_sys_log` VALUES ('7600', '2021-06-19 13:14:28.947068', '2021-06-19 13:14:28.947068', '1', '/admin/machine/device/info', '127.0.0.1', '本机地址', '{\"id\":\"5\"}');
+INSERT INTO `base_sys_log` VALUES ('7601', '2021-06-19 13:14:33.290065', '2021-06-19 13:14:33.290065', '1', '/admin/machine/device/update', '127.0.0.1', '本机地址', '{\"clientid\":\"no002\",\"name\":\"游泳馆翼闸\",\"channelName\":\"通道B\",\"mac\":\"34:dsa:asd:34\",\"maintainer\":43,\"id\":5,\"createTime\":\"2021-03-26 00:41:09\",\"updateTime\":\"2021-06-16 14:00:32\",\"userId\":1,\"maintainerId\":43,\"params\":null,\"workorder\":0}');
+INSERT INTO `base_sys_log` VALUES ('7602', '2021-06-19 13:14:33.291350', '2021-06-19 13:14:33.291350', '1', '/admin/machine/device/update', '127.0.0.1', '本机地址', '{\"clientid\":\"no002\",\"name\":\"游泳馆翼闸\",\"channelName\":\"通道B\",\"mac\":\"34:dsa:asd:34\",\"maintainer\":43,\"id\":5,\"createTime\":\"2021-03-26 00:41:09\",\"updateTime\":\"2021-06-16 14:00:32\",\"userId\":1,\"maintainerId\":43,\"params\":null,\"workorder\":0}');
+INSERT INTO `base_sys_log` VALUES ('7603', '2021-06-19 13:14:33.738329', '2021-06-19 13:14:33.738329', '1', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7604', '2021-06-19 13:14:33.739362', '2021-06-19 13:14:33.739362', '1', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7605', '2021-06-19 13:14:35.160462', '2021-06-19 13:14:35.160462', '1', '/admin/machine/device/info', '127.0.0.1', '本机地址', '{\"id\":\"4\"}');
+INSERT INTO `base_sys_log` VALUES ('7606', '2021-06-19 13:14:35.161804', '2021-06-19 13:14:35.161804', '1', '/admin/machine/device/info', '127.0.0.1', '本机地址', '{\"id\":\"4\"}');
+INSERT INTO `base_sys_log` VALUES ('7607', '2021-06-19 13:14:35.492970', '2021-06-19 13:14:35.492970', '1', '/admin/base/sys/user/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7608', '2021-06-19 13:14:35.494185', '2021-06-19 13:14:35.494185', '1', '/admin/base/sys/user/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7609', '2021-06-19 13:14:38.257625', '2021-06-19 13:14:38.257625', '1', '/admin/machine/device/update', '127.0.0.1', '本机地址', '{\"clientid\":\"no001\",\"name\":\"游泳馆翼闸\",\"channelName\":\"通道A\",\"mac\":\"asd:34:dsa:asd:34\",\"maintainer\":35,\"id\":4,\"createTime\":\"2021-03-26 00:40:46\",\"updateTime\":\"2021-06-16 14:00:27\",\"userId\":1,\"maintainerId\":35,\"params\":null,\"workorder\":0}');
+INSERT INTO `base_sys_log` VALUES ('7610', '2021-06-19 13:14:38.260033', '2021-06-19 13:14:38.260033', '1', '/admin/machine/device/update', '127.0.0.1', '本机地址', '{\"clientid\":\"no001\",\"name\":\"游泳馆翼闸\",\"channelName\":\"通道A\",\"mac\":\"asd:34:dsa:asd:34\",\"maintainer\":35,\"id\":4,\"createTime\":\"2021-03-26 00:40:46\",\"updateTime\":\"2021-06-16 14:00:27\",\"userId\":1,\"maintainerId\":35,\"params\":null,\"workorder\":0}');
+INSERT INTO `base_sys_log` VALUES ('7611', '2021-06-19 13:14:38.526780', '2021-06-19 13:14:38.526780', '1', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7612', '2021-06-19 13:14:38.527665', '2021-06-19 13:14:38.527665', '1', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7613', '2021-06-19 13:14:40.104715', '2021-06-19 13:14:40.104715', '35', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', '{\"type\":1}');
+INSERT INTO `base_sys_log` VALUES ('7614', '2021-06-19 13:14:40.105246', '2021-06-19 13:14:40.105246', '35', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', '{\"type\":1}');
+INSERT INTO `base_sys_log` VALUES ('7615', '2021-06-19 13:14:40.121887', '2021-06-19 13:14:40.121887', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7616', '2021-06-19 13:14:40.122806', '2021-06-19 13:14:40.122806', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7617', '2021-06-19 13:15:04.260037', '2021-06-19 13:15:04.260037', '35', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', '{\"type\":1}');
+INSERT INTO `base_sys_log` VALUES ('7618', '2021-06-19 13:15:04.260922', '2021-06-19 13:15:04.260922', '35', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', '{\"type\":1}');
+INSERT INTO `base_sys_log` VALUES ('7619', '2021-06-19 13:15:04.276174', '2021-06-19 13:15:04.276174', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7620', '2021-06-19 13:15:04.277251', '2021-06-19 13:15:04.277251', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7621', '2021-06-19 13:15:08.641282', '2021-06-19 13:15:08.641282', '35', '/admin/machine/device/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7622', '2021-06-19 13:15:08.642059', '2021-06-19 13:15:08.642059', '35', '/admin/machine/device/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7623', '2021-06-19 13:15:10.572611', '2021-06-19 13:15:10.572611', '35', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', '{\"type\":1}');
+INSERT INTO `base_sys_log` VALUES ('7624', '2021-06-19 13:15:10.573671', '2021-06-19 13:15:10.573671', '35', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', '{\"type\":1}');
+INSERT INTO `base_sys_log` VALUES ('7625', '2021-06-19 13:15:10.575260', '2021-06-19 13:15:10.575260', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7626', '2021-06-19 13:15:10.576065', '2021-06-19 13:15:10.576065', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7627', '2021-06-19 13:15:12.871781', '2021-06-19 13:15:12.871781', '35', '/admin/machine/device/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7628', '2021-06-19 13:15:12.872563', '2021-06-19 13:15:12.872563', '35', '/admin/machine/device/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7629', '2021-06-19 13:15:13.722806', '2021-06-19 13:15:13.722806', '35', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', '{\"type\":1}');
+INSERT INTO `base_sys_log` VALUES ('7630', '2021-06-19 13:15:13.723710', '2021-06-19 13:15:13.723710', '35', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', '{\"type\":1}');
+INSERT INTO `base_sys_log` VALUES ('7631', '2021-06-19 13:15:14.034383', '2021-06-19 13:15:14.034383', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7632', '2021-06-19 13:15:14.035308', '2021-06-19 13:15:14.035308', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7633', '2021-06-19 13:15:18.663183', '2021-06-19 13:15:18.663183', '35', '/admin/machine/mqtt/sendmsg', '127.0.0.1', '本机地址', '{\"code\":\"0xa2\",\"topic\":\"no003\"}');
+INSERT INTO `base_sys_log` VALUES ('7634', '2021-06-19 13:15:49.010341', '2021-06-19 13:15:49.010341', '35', '/admin/machine/mqtt/sendmsg', '127.0.0.1', '本机地址', '{\"code\":\"0xab\",\"topic\":\"no003\"}');
+INSERT INTO `base_sys_log` VALUES ('7635', '2021-06-19 13:15:56.546391', '2021-06-19 13:15:56.546391', '35', '/admin/machine/mqtt/sendmsg', '127.0.0.1', '本机地址', '{\"code\":\"0xab\",\"topic\":\"no003\"}');
+INSERT INTO `base_sys_log` VALUES ('7636', '2021-06-19 13:16:01.375541', '2021-06-19 13:16:01.375541', '35', '/admin/machine/device/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7637', '2021-06-19 13:16:01.376421', '2021-06-19 13:16:01.376421', '35', '/admin/machine/device/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7638', '2021-06-19 13:16:28.743430', '2021-06-19 13:16:28.743430', '1', '/admin/base/sys/role/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20,\"sort\":\"desc\",\"order\":\"createTime\"}');
+INSERT INTO `base_sys_log` VALUES ('7639', '2021-06-19 13:16:28.744292', '2021-06-19 13:16:28.744292', '1', '/admin/base/sys/role/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20,\"sort\":\"desc\",\"order\":\"createTime\"}');
+INSERT INTO `base_sys_log` VALUES ('7640', '2021-06-19 13:16:37.265630', '2021-06-19 13:16:37.265630', '1', '/admin/base/sys/role/info', '127.0.0.1', '本机地址', '{\"id\":\"12\"}');
+INSERT INTO `base_sys_log` VALUES ('7641', '2021-06-19 13:16:37.269198', '2021-06-19 13:16:37.269198', '1', '/admin/base/sys/role/info', '127.0.0.1', '本机地址', '{\"id\":\"12\"}');
+INSERT INTO `base_sys_log` VALUES ('7642', '2021-06-19 13:16:37.612151', '2021-06-19 13:16:37.612151', '1', '/admin/base/sys/menu/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7643', '2021-06-19 13:16:37.615106', '2021-06-19 13:16:37.615106', '1', '/admin/base/sys/menu/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7644', '2021-06-19 13:16:37.621232', '2021-06-19 13:16:37.621232', '1', '/admin/base/sys/department/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7645', '2021-06-19 13:16:37.622260', '2021-06-19 13:16:37.622260', '1', '/admin/base/sys/department/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7646', '2021-06-19 13:16:50.026034', '2021-06-19 13:16:50.026034', '1', '/admin/base/sys/menu/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7647', '2021-06-19 13:16:50.027543', '2021-06-19 13:16:50.027543', '1', '/admin/base/sys/menu/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7648', '2021-06-19 13:16:59.973624', '2021-06-19 13:16:59.973624', '1', '/admin/base/sys/menu/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7649', '2021-06-19 13:16:59.974572', '2021-06-19 13:16:59.974572', '1', '/admin/base/sys/menu/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7650', '2021-06-19 13:17:00.292488', '2021-06-19 13:17:00.292488', '1', '/admin/base/sys/menu/info', '127.0.0.1', '本机地址', '{\"id\":\"121\"}');
+INSERT INTO `base_sys_log` VALUES ('7651', '2021-06-19 13:17:00.293477', '2021-06-19 13:17:00.293477', '1', '/admin/base/sys/menu/info', '127.0.0.1', '本机地址', '{\"id\":\"121\"}');
+INSERT INTO `base_sys_log` VALUES ('7652', '2021-06-19 13:17:07.839866', '2021-06-19 13:17:07.839866', '1', '/admin/base/sys/menu/update', '127.0.0.1', '本机地址', '{\"type\":2,\"name\":\"客户管理\",\"parentId\":null,\"orderNum\":0,\"perms\":\"base:sys:user:page,base:sys:user:list,base:sys:user:info,base:sys:user:add,base:sys:user:delete,base:sys:user:update,base:sys:user:move,base:sys:role:list,base:sys:department:list,base:sys:department:add,base:sys:department:delete,base:sys:department:update\",\"id\":121,\"createTime\":\"2021-03-24 17:26:18\",\"updateTime\":\"2021-03-30 16:50:27\"}');
+INSERT INTO `base_sys_log` VALUES ('7653', '2021-06-19 13:17:07.842382', '2021-06-19 13:17:07.842382', '1', '/admin/base/sys/menu/update', '127.0.0.1', '本机地址', '{\"type\":2,\"name\":\"客户管理\",\"parentId\":null,\"orderNum\":0,\"perms\":\"base:sys:user:page,base:sys:user:list,base:sys:user:info,base:sys:user:add,base:sys:user:delete,base:sys:user:update,base:sys:user:move,base:sys:role:list,base:sys:department:list,base:sys:department:add,base:sys:department:delete,base:sys:department:update\",\"id\":121,\"createTime\":\"2021-03-24 17:26:18\",\"updateTime\":\"2021-03-30 16:50:27\"}');
+INSERT INTO `base_sys_log` VALUES ('7654', '2021-06-19 13:17:53.071967', '2021-06-19 13:17:53.071967', '1', '/admin/base/sys/menu/update', '127.0.0.1', '本机地址', '{\"type\":2,\"name\":\"客户管理\",\"parentId\":null,\"orderNum\":0,\"perms\":\"base:sys:user:page,base:sys:user:list,base:sys:user:info,base:sys:user:add,base:sys:user:delete,base:sys:user:update,base:sys:role:list,base:sys:department:list,base:sys:department:add,base:sys:department:delete,base:sys:department:update\",\"id\":121,\"createTime\":\"2021-03-24 17:26:18\",\"updateTime\":\"2021-03-30 16:50:27\"}');
+INSERT INTO `base_sys_log` VALUES ('7655', '2021-06-19 13:17:53.074126', '2021-06-19 13:17:53.074126', '1', '/admin/base/sys/menu/update', '127.0.0.1', '本机地址', '{\"type\":2,\"name\":\"客户管理\",\"parentId\":null,\"orderNum\":0,\"perms\":\"base:sys:user:page,base:sys:user:list,base:sys:user:info,base:sys:user:add,base:sys:user:delete,base:sys:user:update,base:sys:role:list,base:sys:department:list,base:sys:department:add,base:sys:department:delete,base:sys:department:update\",\"id\":121,\"createTime\":\"2021-03-24 17:26:18\",\"updateTime\":\"2021-03-30 16:50:27\"}');
+INSERT INTO `base_sys_log` VALUES ('7656', '2021-06-19 13:17:53.659872', '2021-06-19 13:17:53.659872', '1', '/admin/base/sys/menu/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7657', '2021-06-19 13:17:53.660589', '2021-06-19 13:17:53.660589', '1', '/admin/base/sys/menu/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7658', '2021-06-19 13:17:55.135822', '2021-06-19 13:17:55.135822', '1', '/admin/base/sys/menu/info', '127.0.0.1', '本机地址', '{\"id\":\"121\"}');
+INSERT INTO `base_sys_log` VALUES ('7659', '2021-06-19 13:17:55.136657', '2021-06-19 13:17:55.136657', '1', '/admin/base/sys/menu/info', '127.0.0.1', '本机地址', '{\"id\":\"121\"}');
+INSERT INTO `base_sys_log` VALUES ('7660', '2021-06-19 13:17:55.460231', '2021-06-19 13:17:55.460231', '1', '/admin/base/sys/menu/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7661', '2021-06-19 13:17:55.461268', '2021-06-19 13:17:55.461268', '1', '/admin/base/sys/menu/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7662', '2021-06-19 13:17:57.283691', '2021-06-19 13:17:57.283691', '1', '/admin/base/sys/menu/update', '127.0.0.1', '本机地址', '{\"type\":1,\"name\":\"客户管理\",\"parentId\":null,\"router\":\"/user\",\"keepAlive\":true,\"isShow\":true,\"viewPath\":\"cool/modules/base/views/user.vue\",\"icon\":\"icon-user\",\"orderNum\":0,\"id\":121,\"createTime\":\"2021-03-24 17:26:18\",\"updateTime\":\"2021-06-19 13:17:53\"}');
+INSERT INTO `base_sys_log` VALUES ('7663', '2021-06-19 13:17:57.284614', '2021-06-19 13:17:57.284614', '1', '/admin/base/sys/menu/update', '127.0.0.1', '本机地址', '{\"type\":1,\"name\":\"客户管理\",\"parentId\":null,\"router\":\"/user\",\"keepAlive\":true,\"isShow\":true,\"viewPath\":\"cool/modules/base/views/user.vue\",\"icon\":\"icon-user\",\"orderNum\":0,\"id\":121,\"createTime\":\"2021-03-24 17:26:18\",\"updateTime\":\"2021-06-19 13:17:53\"}');
+INSERT INTO `base_sys_log` VALUES ('7664', '2021-06-19 13:17:57.565255', '2021-06-19 13:17:57.565255', '1', '/admin/base/sys/menu/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7665', '2021-06-19 13:17:57.566191', '2021-06-19 13:17:57.566191', '1', '/admin/base/sys/menu/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7666', '2021-06-19 13:17:59.635690', '2021-06-19 13:17:59.635690', '35', '/admin/base/sys/user/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7667', '2021-06-19 13:17:59.636572', '2021-06-19 13:17:59.636572', '35', '/admin/base/sys/user/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7668', '2021-06-19 13:17:59.638487', '2021-06-19 13:17:59.638487', '35', '/admin/machine/device/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7669', '2021-06-19 13:17:59.639343', '2021-06-19 13:17:59.639343', '35', '/admin/machine/device/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7670', '2021-06-19 13:18:09.680392', '2021-06-19 13:18:09.680392', '35', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', '{\"type\":1}');
+INSERT INTO `base_sys_log` VALUES ('7671', '2021-06-19 13:18:09.681546', '2021-06-19 13:18:09.681546', '35', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', '{\"type\":1}');
+INSERT INTO `base_sys_log` VALUES ('7672', '2021-06-19 13:18:09.697576', '2021-06-19 13:18:09.697576', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7673', '2021-06-19 13:18:09.709714', '2021-06-19 13:18:09.709714', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7674', '2021-06-19 13:18:10.847676', '2021-06-19 13:18:10.847676', '35', '/admin/base/sys/user/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7675', '2021-06-19 13:18:10.849856', '2021-06-19 13:18:10.849856', '35', '/admin/base/sys/user/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7676', '2021-06-19 13:18:10.877176', '2021-06-19 13:18:10.877176', '35', '/admin/machine/device/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7677', '2021-06-19 13:18:10.878423', '2021-06-19 13:18:10.878423', '35', '/admin/machine/device/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7678', '2021-06-19 13:19:53.285255', '2021-06-19 13:19:53.285255', '35', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', '{\"type\":1}');
+INSERT INTO `base_sys_log` VALUES ('7679', '2021-06-19 13:19:53.288983', '2021-06-19 13:19:53.288983', '35', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', '{\"type\":1}');
+INSERT INTO `base_sys_log` VALUES ('7680', '2021-06-19 13:19:53.293315', '2021-06-19 13:19:53.293315', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7681', '2021-06-19 13:19:53.295464', '2021-06-19 13:19:53.295464', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7682', '2021-06-19 13:21:02.376291', '2021-06-19 13:21:02.376291', '35', '/admin/base/comm/person', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7683', '2021-06-19 13:21:04.924697', '2021-06-19 13:21:04.924697', '35', '/admin/base/sys/user/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7684', '2021-06-19 13:21:04.925793', '2021-06-19 13:21:04.925793', '35', '/admin/base/sys/user/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7685', '2021-06-19 13:21:09.470733', '2021-06-19 13:21:09.470733', '1', '/admin/base/sys/department/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7686', '2021-06-19 13:21:09.472366', '2021-06-19 13:21:09.472366', '1', '/admin/base/sys/department/list', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7687', '2021-06-19 13:21:09.477780', '2021-06-19 13:21:09.477780', '1', '/admin/base/sys/user/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20,\"sort\":\"desc\",\"order\":\"createTime\"}');
+INSERT INTO `base_sys_log` VALUES ('7688', '2021-06-19 13:21:09.479975', '2021-06-19 13:21:09.479975', '1', '/admin/base/sys/user/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20,\"sort\":\"desc\",\"order\":\"createTime\"}');
+INSERT INTO `base_sys_log` VALUES ('7689', '2021-06-19 13:21:20.054480', '2021-06-19 13:21:20.054480', '35', '/admin/base/comm/person', '127.0.0.1', '本机地址', null);
+INSERT INTO `base_sys_log` VALUES ('7690', '2021-06-19 13:21:20.953395', '2021-06-19 13:21:20.953395', '35', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', '{\"type\":1}');
+INSERT INTO `base_sys_log` VALUES ('7691', '2021-06-19 13:21:20.954717', '2021-06-19 13:21:20.954717', '35', '/admin/machine/instruct/list', '127.0.0.1', '本机地址', '{\"type\":1}');
+INSERT INTO `base_sys_log` VALUES ('7692', '2021-06-19 13:21:21.263891', '2021-06-19 13:21:21.263891', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7693', '2021-06-19 13:21:21.265390', '2021-06-19 13:21:21.265390', '35', '/admin/machine/device/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10}');
+INSERT INTO `base_sys_log` VALUES ('7694', '2021-06-19 13:21:23.164013', '2021-06-19 13:21:23.164013', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":1}');
+INSERT INTO `base_sys_log` VALUES ('7695', '2021-06-19 13:21:23.165357', '2021-06-19 13:21:23.165357', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":1}');
+INSERT INTO `base_sys_log` VALUES ('7696', '2021-06-19 13:21:24.308809', '2021-06-19 13:21:24.308809', '35', '/admin/machine/workorder/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7697', '2021-06-19 13:21:24.310004', '2021-06-19 13:21:24.310004', '35', '/admin/machine/workorder/info', '127.0.0.1', '本机地址', '{\"id\":\"7\"}');
+INSERT INTO `base_sys_log` VALUES ('7698', '2021-06-19 13:21:27.532765', '2021-06-19 13:21:27.532765', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":1}');
+INSERT INTO `base_sys_log` VALUES ('7699', '2021-06-19 13:21:27.533955', '2021-06-19 13:21:27.533955', '35', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":10,\"status\":1}');
+INSERT INTO `base_sys_log` VALUES ('7700', '2021-06-19 13:21:32.097683', '2021-06-19 13:21:32.097683', '1', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
+INSERT INTO `base_sys_log` VALUES ('7701', '2021-06-19 13:21:32.099094', '2021-06-19 13:21:32.099094', '1', '/admin/machine/workorder/page', '127.0.0.1', '本机地址', '{\"page\":1,\"size\":20}');
 
 -- ----------------------------
 -- Table structure for `base_sys_menu`
@@ -990,9 +1412,9 @@ INSERT INTO `base_sys_menu` VALUES ('117', '2021-03-05 10:58:25.000000', '2021-0
 INSERT INTO `base_sys_menu` VALUES ('118', '2021-03-05 10:59:42.000000', '2021-03-05 10:59:42.000000', '117', '任务列表', '/task', null, '1', 'icon-menu', '0', 'cool/modules/task/views/task.vue', '1', '1');
 INSERT INTO `base_sys_menu` VALUES ('119', '2021-03-05 11:00:00.000000', '2021-03-05 11:00:00.000000', '118', '权限', null, 'task:info:page,task:info:list,task:info:info,task:info:add,task:info:delete,task:info:update,task:info:stop,task:info:start,task:info:once,task:info:log', '2', null, '0', null, '1', '1');
 INSERT INTO `base_sys_menu` VALUES ('120', '2021-03-24 10:11:31.000000', '2021-06-17 14:26:59.000000', '122', '设备列表', '', 'machine:device:page,machine:device:list,machine:device:info,machine:device:add,machine:device:delete,machine:device:update,machine:instruct:list,machine:mqtt:sendmsg', '1', 'icon-rank', '1', 'cool/modules/machine/views/device.vue', '1', '1');
-INSERT INTO `base_sys_menu` VALUES ('121', '2021-03-24 17:26:18.000000', '2021-03-30 16:50:27.000000', null, '客户管理', '/user', 'base:sys:user:page,base:sys:user:info,base:sys:user:add,base:sys:user:delete,base:sys:user:update,base:sys:user:move,base:sys:role:list,base:sys:department:list,base:sys:department:add,base:sys:department:delete,base:sys:department:update', '1', 'icon-user', '0', 'cool/modules/base/views/user.vue', '1', '1');
+INSERT INTO `base_sys_menu` VALUES ('121', '2021-03-24 17:26:18.000000', '2021-06-19 13:17:57.000000', null, '客户管理', '/user', 'base:sys:user:page,base:sys:user:list,base:sys:user:info,base:sys:user:add,base:sys:user:delete,base:sys:user:update,base:sys:role:list,base:sys:department:list,base:sys:department:add,base:sys:department:delete,base:sys:department:update', '1', 'icon-user', '0', 'cool/modules/base/views/user.vue', '1', '1');
 INSERT INTO `base_sys_menu` VALUES ('122', '2021-03-30 16:25:38.000000', '2021-03-30 16:50:01.000000', null, '设备管理', null, null, '0', 'icon-dept', '2', null, '1', '1');
-INSERT INTO `base_sys_menu` VALUES ('123', '2021-03-30 16:28:30.000000', '2021-03-30 16:28:30.000000', '122', '设备错误码', null, null, '1', 'icon-command', '0', 'cool/modules/machine/views/deviceErrorCode.vue', '1', '1');
+INSERT INTO `base_sys_menu` VALUES ('123', '2021-03-30 16:28:30.000000', '2021-06-19 09:53:05.000000', '122', '设备错误码', null, null, '1', 'icon-command', '0', 'cool/modules/machine/views/deviceErrorCode.vue', '1', '0');
 INSERT INTO `base_sys_menu` VALUES ('124', '2021-03-30 16:49:42.000000', '2021-04-01 09:11:47.000000', null, '工单列表', null, 'machine:workorder:page,machine:workorder:list,machine:workorder:info,machine:workorder:add,machine:workorder:delete,machine:workorder:update', '1', 'icon-log', '1', 'cool/modules/machine/views/workorder.vue', '1', '1');
 INSERT INTO `base_sys_menu` VALUES ('125', '2021-06-17 13:00:19.929390', '2021-06-17 13:00:19.929390', '122', '设备指令码', null, null, '1', 'icon-auth', '0', 'cool/modules/machine/views/Instruct.vue', '1', '1');
 
@@ -1045,7 +1467,7 @@ CREATE TABLE `base_sys_role` (
 -- Records of base_sys_role
 -- ----------------------------
 INSERT INTO `base_sys_role` VALUES ('1', '2021-02-24 21:18:39.682358', '2021-02-24 21:18:39.682358', '1', '超管', 'admin', '最高权限的角色', '1');
-INSERT INTO `base_sys_role` VALUES ('10', '2021-02-26 14:15:38.000000', '2021-04-01 09:10:57.000000', '1', '总公司', 'admin-sys', '', '1');
+INSERT INTO `base_sys_role` VALUES ('10', '2021-02-26 14:15:38.000000', '2021-06-19 09:52:32.000000', '1', '总公司', 'admin-sys', '', '1');
 INSERT INTO `base_sys_role` VALUES ('11', '2021-02-26 14:16:49.000000', '2021-04-01 09:11:33.000000', '1', '客户', 'client', null, '0');
 INSERT INTO `base_sys_role` VALUES ('12', '2021-02-26 14:26:51.000000', '2021-04-01 09:11:27.000000', '1', '工程商', 'project', null, '0');
 INSERT INTO `base_sys_role` VALUES ('13', '2021-02-26 14:27:58.000000', '2021-04-01 09:11:22.000000', '1', '经销商', 'dealer', null, '0');
@@ -1063,21 +1485,21 @@ CREATE TABLE `base_sys_role_department` (
   PRIMARY KEY (`id`),
   KEY `IDX_e881a66f7cce83ba431cf20194` (`createTime`),
   KEY `IDX_cbf48031efee5d0de262965e53` (`updateTime`)
-) ENGINE=InnoDB AUTO_INCREMENT=130 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=134 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of base_sys_role_department
 -- ----------------------------
-INSERT INTO `base_sys_role_department` VALUES ('117', '2021-04-01 09:10:59.374590', '2021-04-01 09:10:59.374590', '10', '1');
-INSERT INTO `base_sys_role_department` VALUES ('118', '2021-04-01 09:10:59.411383', '2021-04-01 09:10:59.411383', '10', '11');
-INSERT INTO `base_sys_role_department` VALUES ('119', '2021-04-01 09:10:59.441418', '2021-04-01 09:10:59.441418', '10', '14');
-INSERT INTO `base_sys_role_department` VALUES ('120', '2021-04-01 09:10:59.470319', '2021-04-01 09:10:59.470319', '10', '15');
 INSERT INTO `base_sys_role_department` VALUES ('124', '2021-04-01 09:11:22.277001', '2021-04-01 09:11:22.277001', '13', '11');
 INSERT INTO `base_sys_role_department` VALUES ('125', '2021-04-01 09:11:22.310029', '2021-04-01 09:11:22.310029', '13', '14');
 INSERT INTO `base_sys_role_department` VALUES ('126', '2021-04-01 09:11:22.366641', '2021-04-01 09:11:22.366641', '13', '15');
 INSERT INTO `base_sys_role_department` VALUES ('127', '2021-04-01 09:11:27.861757', '2021-04-01 09:11:27.861757', '12', '14');
 INSERT INTO `base_sys_role_department` VALUES ('128', '2021-04-01 09:11:27.919928', '2021-04-01 09:11:27.919928', '12', '15');
 INSERT INTO `base_sys_role_department` VALUES ('129', '2021-04-01 09:11:33.852690', '2021-04-01 09:11:33.852690', '11', '15');
+INSERT INTO `base_sys_role_department` VALUES ('130', '2021-06-19 09:52:35.240270', '2021-06-19 09:52:35.240270', '10', '1');
+INSERT INTO `base_sys_role_department` VALUES ('131', '2021-06-19 09:52:35.279001', '2021-06-19 09:52:35.279001', '10', '11');
+INSERT INTO `base_sys_role_department` VALUES ('132', '2021-06-19 09:52:35.330550', '2021-06-19 09:52:35.330550', '10', '14');
+INSERT INTO `base_sys_role_department` VALUES ('133', '2021-06-19 09:52:35.371231', '2021-06-19 09:52:35.371231', '10', '15');
 
 -- ----------------------------
 -- Table structure for `base_sys_role_menu`
@@ -1092,7 +1514,7 @@ CREATE TABLE `base_sys_role_menu` (
   PRIMARY KEY (`id`),
   KEY `IDX_3641f81d4201c524a57ce2aa54` (`createTime`),
   KEY `IDX_f860298298b26e7a697be36e5b` (`updateTime`)
-) ENGINE=InnoDB AUTO_INCREMENT=1265 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=1305 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of base_sys_role_menu
@@ -1205,46 +1627,6 @@ INSERT INTO `base_sys_role_menu` VALUES ('105', '2021-02-26 12:01:11.097786', '2
 INSERT INTO `base_sys_role_menu` VALUES ('106', '2021-02-26 12:01:11.201390', '2021-02-26 12:01:11.201390', '9', '84');
 INSERT INTO `base_sys_role_menu` VALUES ('107', '2021-02-26 12:01:11.302120', '2021-02-26 12:01:11.302120', '9', '90');
 INSERT INTO `base_sys_role_menu` VALUES ('108', '2021-02-26 12:01:11.402751', '2021-02-26 12:01:11.402751', '9', '85');
-INSERT INTO `base_sys_role_menu` VALUES ('1205', '2021-04-01 09:10:58.095743', '2021-04-01 09:10:58.095743', '10', '121');
-INSERT INTO `base_sys_role_menu` VALUES ('1206', '2021-04-01 09:10:58.154040', '2021-04-01 09:10:58.154040', '10', '124');
-INSERT INTO `base_sys_role_menu` VALUES ('1207', '2021-04-01 09:10:58.184427', '2021-04-01 09:10:58.184427', '10', '122');
-INSERT INTO `base_sys_role_menu` VALUES ('1208', '2021-04-01 09:10:58.228745', '2021-04-01 09:10:58.228745', '10', '123');
-INSERT INTO `base_sys_role_menu` VALUES ('1209', '2021-04-01 09:10:58.286551', '2021-04-01 09:10:58.286551', '10', '120');
-INSERT INTO `base_sys_role_menu` VALUES ('1210', '2021-04-01 09:10:58.317683', '2021-04-01 09:10:58.317683', '10', '2');
-INSERT INTO `base_sys_role_menu` VALUES ('1211', '2021-04-01 09:10:58.345067', '2021-04-01 09:10:58.345067', '10', '27');
-INSERT INTO `base_sys_role_menu` VALUES ('1212', '2021-04-01 09:10:58.376055', '2021-04-01 09:10:58.376055', '10', '97');
-INSERT INTO `base_sys_role_menu` VALUES ('1213', '2021-04-01 09:10:58.411868', '2021-04-01 09:10:58.411868', '10', '59');
-INSERT INTO `base_sys_role_menu` VALUES ('1214', '2021-04-01 09:10:58.441160', '2021-04-01 09:10:58.441160', '10', '60');
-INSERT INTO `base_sys_role_menu` VALUES ('1215', '2021-04-01 09:10:58.469810', '2021-04-01 09:10:58.469810', '10', '61');
-INSERT INTO `base_sys_role_menu` VALUES ('1216', '2021-04-01 09:10:58.500187', '2021-04-01 09:10:58.500187', '10', '62');
-INSERT INTO `base_sys_role_menu` VALUES ('1217', '2021-04-01 09:10:58.528219', '2021-04-01 09:10:58.528219', '10', '63');
-INSERT INTO `base_sys_role_menu` VALUES ('1218', '2021-04-01 09:10:58.558135', '2021-04-01 09:10:58.558135', '10', '65');
-INSERT INTO `base_sys_role_menu` VALUES ('1219', '2021-04-01 09:10:58.586620', '2021-04-01 09:10:58.586620', '10', '98');
-INSERT INTO `base_sys_role_menu` VALUES ('1220', '2021-04-01 09:10:58.616708', '2021-04-01 09:10:58.616708', '10', '99');
-INSERT INTO `base_sys_role_menu` VALUES ('1221', '2021-04-01 09:10:58.644760', '2021-04-01 09:10:58.644760', '10', '100');
-INSERT INTO `base_sys_role_menu` VALUES ('1222', '2021-04-01 09:10:58.674731', '2021-04-01 09:10:58.674731', '10', '101');
-INSERT INTO `base_sys_role_menu` VALUES ('1223', '2021-04-01 09:10:58.703099', '2021-04-01 09:10:58.703099', '10', '8');
-INSERT INTO `base_sys_role_menu` VALUES ('1224', '2021-04-01 09:10:58.734045', '2021-04-01 09:10:58.734045', '10', '10');
-INSERT INTO `base_sys_role_menu` VALUES ('1225', '2021-04-01 09:10:58.761499', '2021-04-01 09:10:58.761499', '10', '11');
-INSERT INTO `base_sys_role_menu` VALUES ('1226', '2021-04-01 09:10:58.791161', '2021-04-01 09:10:58.791161', '10', '12');
-INSERT INTO `base_sys_role_menu` VALUES ('1227', '2021-04-01 09:10:58.819899', '2021-04-01 09:10:58.819899', '10', '13');
-INSERT INTO `base_sys_role_menu` VALUES ('1228', '2021-04-01 09:10:58.849988', '2021-04-01 09:10:58.849988', '10', '22');
-INSERT INTO `base_sys_role_menu` VALUES ('1229', '2021-04-01 09:10:58.878132', '2021-04-01 09:10:58.878132', '10', '23');
-INSERT INTO `base_sys_role_menu` VALUES ('1230', '2021-04-01 09:10:58.907816', '2021-04-01 09:10:58.907816', '10', '24');
-INSERT INTO `base_sys_role_menu` VALUES ('1231', '2021-04-01 09:10:58.936658', '2021-04-01 09:10:58.936658', '10', '25');
-INSERT INTO `base_sys_role_menu` VALUES ('1232', '2021-04-01 09:10:58.966959', '2021-04-01 09:10:58.966959', '10', '26');
-INSERT INTO `base_sys_role_menu` VALUES ('1233', '2021-04-01 09:10:58.995070', '2021-04-01 09:10:58.995070', '10', '78');
-INSERT INTO `base_sys_role_menu` VALUES ('1234', '2021-04-01 09:10:59.024429', '2021-04-01 09:10:59.024429', '10', '79');
-INSERT INTO `base_sys_role_menu` VALUES ('1235', '2021-04-01 09:10:59.053102', '2021-04-01 09:10:59.053102', '10', '80');
-INSERT INTO `base_sys_role_menu` VALUES ('1236', '2021-04-01 09:10:59.083892', '2021-04-01 09:10:59.083892', '10', '81');
-INSERT INTO `base_sys_role_menu` VALUES ('1237', '2021-04-01 09:10:59.111506', '2021-04-01 09:10:59.111506', '10', '82');
-INSERT INTO `base_sys_role_menu` VALUES ('1238', '2021-04-01 09:10:59.141581', '2021-04-01 09:10:59.141581', '10', '83');
-INSERT INTO `base_sys_role_menu` VALUES ('1239', '2021-04-01 09:10:59.169767', '2021-04-01 09:10:59.169767', '10', '105');
-INSERT INTO `base_sys_role_menu` VALUES ('1240', '2021-04-01 09:10:59.199994', '2021-04-01 09:10:59.199994', '10', '29');
-INSERT INTO `base_sys_role_menu` VALUES ('1241', '2021-04-01 09:10:59.228176', '2021-04-01 09:10:59.228176', '10', '30');
-INSERT INTO `base_sys_role_menu` VALUES ('1242', '2021-04-01 09:10:59.257894', '2021-04-01 09:10:59.257894', '10', '117');
-INSERT INTO `base_sys_role_menu` VALUES ('1243', '2021-04-01 09:10:59.286409', '2021-04-01 09:10:59.286409', '10', '118');
-INSERT INTO `base_sys_role_menu` VALUES ('1244', '2021-04-01 09:10:59.316601', '2021-04-01 09:10:59.316601', '10', '119');
 INSERT INTO `base_sys_role_menu` VALUES ('1254', '2021-04-01 09:11:22.132738', '2021-04-01 09:11:22.132738', '13', '121');
 INSERT INTO `base_sys_role_menu` VALUES ('1255', '2021-04-01 09:11:22.161104', '2021-04-01 09:11:22.161104', '13', '124');
 INSERT INTO `base_sys_role_menu` VALUES ('1256', '2021-04-01 09:11:22.190221', '2021-04-01 09:11:22.190221', '13', '120');
@@ -1256,6 +1638,46 @@ INSERT INTO `base_sys_role_menu` VALUES ('1261', '2021-04-01 09:11:27.793436', '
 INSERT INTO `base_sys_role_menu` VALUES ('1262', '2021-04-01 09:11:33.719338', '2021-04-01 09:11:33.719338', '11', '124');
 INSERT INTO `base_sys_role_menu` VALUES ('1263', '2021-04-01 09:11:33.748489', '2021-04-01 09:11:33.748489', '11', '120');
 INSERT INTO `base_sys_role_menu` VALUES ('1264', '2021-04-01 09:11:33.779157', '2021-04-01 09:11:33.779157', '11', '122');
+INSERT INTO `base_sys_role_menu` VALUES ('1265', '2021-06-19 09:52:33.151018', '2021-06-19 09:52:33.151018', '10', '121');
+INSERT INTO `base_sys_role_menu` VALUES ('1266', '2021-06-19 09:52:33.215036', '2021-06-19 09:52:33.215036', '10', '124');
+INSERT INTO `base_sys_role_menu` VALUES ('1267', '2021-06-19 09:52:33.289862', '2021-06-19 09:52:33.289862', '10', '125');
+INSERT INTO `base_sys_role_menu` VALUES ('1268', '2021-06-19 09:52:33.365255', '2021-06-19 09:52:33.365255', '10', '120');
+INSERT INTO `base_sys_role_menu` VALUES ('1269', '2021-06-19 09:52:33.415050', '2021-06-19 09:52:33.415050', '10', '2');
+INSERT INTO `base_sys_role_menu` VALUES ('1270', '2021-06-19 09:52:33.453578', '2021-06-19 09:52:33.453578', '10', '27');
+INSERT INTO `base_sys_role_menu` VALUES ('1271', '2021-06-19 09:52:33.517578', '2021-06-19 09:52:33.517578', '10', '97');
+INSERT INTO `base_sys_role_menu` VALUES ('1272', '2021-06-19 09:52:33.585492', '2021-06-19 09:52:33.585492', '10', '59');
+INSERT INTO `base_sys_role_menu` VALUES ('1273', '2021-06-19 09:52:33.641334', '2021-06-19 09:52:33.641334', '10', '60');
+INSERT INTO `base_sys_role_menu` VALUES ('1274', '2021-06-19 09:52:33.689803', '2021-06-19 09:52:33.689803', '10', '61');
+INSERT INTO `base_sys_role_menu` VALUES ('1275', '2021-06-19 09:52:33.746617', '2021-06-19 09:52:33.746617', '10', '62');
+INSERT INTO `base_sys_role_menu` VALUES ('1276', '2021-06-19 09:52:33.797131', '2021-06-19 09:52:33.797131', '10', '63');
+INSERT INTO `base_sys_role_menu` VALUES ('1277', '2021-06-19 09:52:33.833724', '2021-06-19 09:52:33.833724', '10', '65');
+INSERT INTO `base_sys_role_menu` VALUES ('1278', '2021-06-19 09:52:33.882668', '2021-06-19 09:52:33.882668', '10', '98');
+INSERT INTO `base_sys_role_menu` VALUES ('1279', '2021-06-19 09:52:33.919941', '2021-06-19 09:52:33.919941', '10', '99');
+INSERT INTO `base_sys_role_menu` VALUES ('1280', '2021-06-19 09:52:33.957590', '2021-06-19 09:52:33.957590', '10', '100');
+INSERT INTO `base_sys_role_menu` VALUES ('1281', '2021-06-19 09:52:34.018715', '2021-06-19 09:52:34.018715', '10', '101');
+INSERT INTO `base_sys_role_menu` VALUES ('1282', '2021-06-19 09:52:34.137326', '2021-06-19 09:52:34.137326', '10', '8');
+INSERT INTO `base_sys_role_menu` VALUES ('1283', '2021-06-19 09:52:34.195906', '2021-06-19 09:52:34.195906', '10', '10');
+INSERT INTO `base_sys_role_menu` VALUES ('1284', '2021-06-19 09:52:34.243807', '2021-06-19 09:52:34.243807', '10', '11');
+INSERT INTO `base_sys_role_menu` VALUES ('1285', '2021-06-19 09:52:34.301858', '2021-06-19 09:52:34.301858', '10', '12');
+INSERT INTO `base_sys_role_menu` VALUES ('1286', '2021-06-19 09:52:34.349631', '2021-06-19 09:52:34.349631', '10', '13');
+INSERT INTO `base_sys_role_menu` VALUES ('1287', '2021-06-19 09:52:34.388554', '2021-06-19 09:52:34.388554', '10', '22');
+INSERT INTO `base_sys_role_menu` VALUES ('1288', '2021-06-19 09:52:34.424461', '2021-06-19 09:52:34.424461', '10', '23');
+INSERT INTO `base_sys_role_menu` VALUES ('1289', '2021-06-19 09:52:34.466807', '2021-06-19 09:52:34.466807', '10', '24');
+INSERT INTO `base_sys_role_menu` VALUES ('1290', '2021-06-19 09:52:34.523254', '2021-06-19 09:52:34.523254', '10', '25');
+INSERT INTO `base_sys_role_menu` VALUES ('1291', '2021-06-19 09:52:34.576060', '2021-06-19 09:52:34.576060', '10', '26');
+INSERT INTO `base_sys_role_menu` VALUES ('1292', '2021-06-19 09:52:34.617062', '2021-06-19 09:52:34.617062', '10', '78');
+INSERT INTO `base_sys_role_menu` VALUES ('1293', '2021-06-19 09:52:34.683081', '2021-06-19 09:52:34.683081', '10', '79');
+INSERT INTO `base_sys_role_menu` VALUES ('1294', '2021-06-19 09:52:34.720001', '2021-06-19 09:52:34.720001', '10', '80');
+INSERT INTO `base_sys_role_menu` VALUES ('1295', '2021-06-19 09:52:34.773574', '2021-06-19 09:52:34.773574', '10', '81');
+INSERT INTO `base_sys_role_menu` VALUES ('1296', '2021-06-19 09:52:34.849503', '2021-06-19 09:52:34.849503', '10', '82');
+INSERT INTO `base_sys_role_menu` VALUES ('1297', '2021-06-19 09:52:34.898580', '2021-06-19 09:52:34.898580', '10', '83');
+INSERT INTO `base_sys_role_menu` VALUES ('1298', '2021-06-19 09:52:34.948404', '2021-06-19 09:52:34.948404', '10', '105');
+INSERT INTO `base_sys_role_menu` VALUES ('1299', '2021-06-19 09:52:34.987358', '2021-06-19 09:52:34.987358', '10', '29');
+INSERT INTO `base_sys_role_menu` VALUES ('1300', '2021-06-19 09:52:35.023583', '2021-06-19 09:52:35.023583', '10', '30');
+INSERT INTO `base_sys_role_menu` VALUES ('1301', '2021-06-19 09:52:35.062365', '2021-06-19 09:52:35.062365', '10', '117');
+INSERT INTO `base_sys_role_menu` VALUES ('1302', '2021-06-19 09:52:35.098302', '2021-06-19 09:52:35.098302', '10', '118');
+INSERT INTO `base_sys_role_menu` VALUES ('1303', '2021-06-19 09:52:35.136449', '2021-06-19 09:52:35.136449', '10', '119');
+INSERT INTO `base_sys_role_menu` VALUES ('1304', '2021-06-19 09:52:35.173737', '2021-06-19 09:52:35.173737', '10', '122');
 
 -- ----------------------------
 -- Table structure for `base_sys_user`
@@ -1437,8 +1859,8 @@ CREATE TABLE `core_plugin` (
 -- Records of core_plugin
 -- ----------------------------
 INSERT INTO `core_plugin` VALUES ('1', '2021-03-23 11:07:22.793438', '2021-03-23 13:23:22.000000', '阿里云OSS', 'cool官方', '邮箱：team@cool-js.com', '将文件上传到阿里云oss，前端签名直传方式', '1.0.12', '0', '0', 'oss', '[{\n    \"label\": \"accessKeyId\",\n    \"prop\": \"accessKeyId\",\n    \"component\": {\n        \"name\": \"el-input\",\n        \"attrs\": {\n            \"placeholder\": \"阿里云accessKeyId\"\n        }\n    },\n    \"props\": {\n        \"label-width\": \"130px\"\n    },\n    \"rules\": {\n        \"required\": true,\n        \"message\": \"值不能为空\"\n    }\n}, {\n    \"label\": \"accessKeySecret\",\n    \"prop\": \"accessKeySecret\",\n    \"component\": {\n        \"name\": \"el-input\",\n        \"attrs\": {\n            \"placeholder\": \"阿里云accessKeySecret\"\n        }\n    },\n    \"props\": {\n        \"label-width\": \"130px\"\n    },\n    \"rules\": {\n        \"required\": true,\n        \"message\": \"值不能为空\"\n    }\n}, {\n    \"label\": \"bucket\",\n    \"prop\": \"bucket\",\n    \"component\": {\n        \"name\": \"el-input\",\n        \"attrs\": {\n            \"placeholder\": \"阿里云oss的bucket\"\n        }\n    },\n    \"props\": {\n        \"label-width\": \"130px\"\n    },\n    \"rules\": {\n        \"required\": true,\n        \"message\": \"值不能为空\"\n    }\n}, {\n    \"label\": \"endpoint\",\n    \"prop\": \"endpoint\",\n    \"component\": {\n        \"name\": \"el-input\",\n        \"attrs\": {\n            \"placeholder\": \"阿里云oss的endpoint\"\n        }\n    },\n    \"props\": {\n        \"label-width\": \"130px\"\n    },\n    \"rules\": {\n        \"required\": true,\n        \"message\": \"值不能为空\"\n    }\n}, {\n    \"label\": \"timeout\",\n    \"prop\": \"timeout\",\n    \"value\": \"3600s\",\n    \"component\": {\n        \"name\": \"el-input\",\n        \"attrs\": {\n            \"placeholder\": \"阿里云oss的timeout\"\n        }\n    },\n    \"props\": {\n        \"label-width\": \"130px\"\n    },\n    \"rules\": {\n        \"required\": true,\n        \"message\": \"值不能为空\"\n    }\n}]', 'oss:ossFileHandler', 'coolFile');
-INSERT INTO `core_plugin` VALUES ('2', '2021-03-23 11:07:22.795035', '2021-06-17 14:19:12.000000', '任务与队列', 'cool官方', '邮箱：team@cool-js.com', '基于redis的任务与队列，支持分布式任务(注: 配置完redis需要重启生效)', '1.0.6', '1', '1', 'queue', null, 'queue:coolQueue', null);
-INSERT INTO `core_plugin` VALUES ('3', '2021-03-23 11:07:22.799042', '2021-06-17 14:19:12.000000', 'Redis缓存', 'cool官方', '邮箱：team@cool-js.com', '替换系统的默认缓存为redis', '1.0.9', '1', '1', 'redis', '[{\n    \"label\": \"配置\",\n    \"prop\": \"redis\",\n    \"component\": {\n        \"name\": \"cl-codemirror\",\n        \"attrs\": {\n            \"placeholder\": \"{\\\"host\\\":\\\"127.0.0.1\\\",\\\"password\\\":\\\"\\\",\\\"port\\\":6379,\\\"db\\\":2}\"\n        },\n        \"props\":{\n            \"height\": \"200px\"\n        }\n    },\n    \"value\": \"{\\\"host\\\":\\\"127.0.0.1\\\",\\\"password\\\":\\\"\\\",\\\"port\\\":6379,\\\"db\\\":2}\",\n    \"props\": {\n        \"label-width\": \"80px\"\n    },\n    \"rules\": {\n        \"required\": true,\n        \"message\": \"值不能为空\"\n    }\n}]', 'redis:redisCacheHandler', 'coolCache');
+INSERT INTO `core_plugin` VALUES ('2', '2021-03-23 11:07:22.795035', '2021-06-19 12:45:55.000000', '任务与队列', 'cool官方', '邮箱：team@cool-js.com', '基于redis的任务与队列，支持分布式任务(注: 配置完redis需要重启生效)', '1.0.6', '1', '3', 'queue', null, 'queue:coolQueue', null);
+INSERT INTO `core_plugin` VALUES ('3', '2021-03-23 11:07:22.799042', '2021-06-19 12:45:55.000000', 'Redis缓存', 'cool官方', '邮箱：team@cool-js.com', '替换系统的默认缓存为redis', '1.0.9', '1', '3', 'redis', '[{\n    \"label\": \"配置\",\n    \"prop\": \"redis\",\n    \"component\": {\n        \"name\": \"cl-codemirror\",\n        \"attrs\": {\n            \"placeholder\": \"{\\\"host\\\":\\\"127.0.0.1\\\",\\\"password\\\":\\\"\\\",\\\"port\\\":6379,\\\"db\\\":2}\"\n        },\n        \"props\":{\n            \"height\": \"200px\"\n        }\n    },\n    \"value\": \"{\\\"host\\\":\\\"127.0.0.1\\\",\\\"password\\\":\\\"\\\",\\\"port\\\":6379,\\\"db\\\":2}\",\n    \"props\": {\n        \"label-width\": \"80px\"\n    },\n    \"rules\": {\n        \"required\": true,\n        \"message\": \"值不能为空\"\n    }\n}]', 'redis:redisCacheHandler', 'coolCache');
 INSERT INTO `core_plugin` VALUES ('4', '2021-03-23 11:07:22.805164', '2021-03-23 13:23:19.000000', '支付宝支付', 'cool官方', '邮箱：team@cool-js.com', '方便集成支付宝支付的sdk', '1.0.3', '0', '0', 'alipay', '[{\n    \"label\": \"appId\",\n    \"prop\": \"appId\",\n    \"component\": {\n        \"name\": \"el-input\",\n        \"attrs\": {\n            \"placeholder\": \"支付宝应用ID\"\n        }\n    },\n    \"props\": {\n        \"label-width\": \"100px\"\n    },\n    \"rules\": {\n        \"required\": true,\n        \"message\": \"值不能为空\"\n    }\n}, {\n    \"label\": \"notifyUrl\",\n    \"prop\": \"notifyUrl\",\n    \"component\": {\n        \"name\": \"el-input\",\n        \"attrs\": {\n            \"placeholder\": \"支付回调地址\"\n        }\n    },\n    \"props\": {\n        \"label-width\": \"100px\"\n    },\n    \"rules\": {\n        \"required\": true,\n        \"message\": \"值不能为空\"\n    }\n}, {\n    \"label\": \"沙箱环境\",\n    \"prop\": \"sandbox\",\n    \"value\": \"0\",\n    \"component\": {\n        \"name\": \"el-radio-group\",\n        \"options\": [{\n                \"label\": \"关闭\",\n                \"value\": \"0\"\n            },\n            {\n                \"label\": \"开启\",\n                \"value\": \"1\"\n            }\n        ]\n    },\n    \"props\": {\n        \"label-width\": \"100px\"\n    },\n    \"rules\": {\n        \"required\": true,\n        \"message\": \"值不能为空\"\n    }\n}, {\n    \"label\": \"signType\",\n    \"prop\": \"signType\",\n    \"value\": \"RSA2\",\n    \"component\": {\n        \"name\": \"el-input\",\n        \"attrs\": {\n            \"placeholder\": \"异步回调地址\"\n        }\n    },\n    \"props\": {\n        \"label-width\": \"100px\"\n    },\n    \"rules\": {\n        \"required\": true,\n        \"message\": \"值不能为空\"\n    }\n}, {\n    \"label\": \"公钥\",\n    \"prop\": \"rsaPublic\",\n    \"component\": {\n        \"name\": \"cl-upload\",\n        \"attrs\": {\n            \"placeholder\": \"支付宝公钥\"\n        },\n        \"props\": {\n            \"list-type\": \"text\",\n            \"accept\": \"*\",\n            \"limit\": 1\n        }\n    },\n    \"props\": {\n        \"label-width\": \"100px\"\n    }\n}, {\n    \"label\": \"私钥\",\n    \"prop\": \"rsaPrivate\",\n    \"component\": {\n        \"name\": \"cl-upload\",\n        \"attrs\": {\n            \"placeholder\": \"支付宝私钥\"\n        },\n        \"props\": {\n            \"list-type\": \"text\",\n            \"accept\": \"*\",\n            \"limit\": 1\n        }\n    },\n    \"props\": {\n        \"label-width\": \"100px\"\n    }\n}]', 'alipay:sdk', null);
 INSERT INTO `core_plugin` VALUES ('5', '2021-03-23 11:07:22.812964', '2021-03-23 13:23:19.000000', '微信支付', 'cool官方', '邮箱：team@cool-js.com', '基于tenpay的微信支付', '1.0.12', '0', '0', 'wxpay', '[{\n    \"label\": \"appid\",\n    \"prop\": \"appid\",\n    \"component\": {\n        \"name\": \"el-input\",\n        \"attrs\": {\n            \"placeholder\": \"微信应用ID\"\n        }\n    },\n    \"props\": {\n        \"label-width\": \"100px\"\n    },\n    \"rules\": {\n        \"required\": true,\n        \"message\": \"值不能为空\"\n    }\n}, {\n    \"label\": \"mchid\",\n    \"prop\": \"mchid\",\n    \"component\": {\n        \"name\": \"el-input\",\n        \"attrs\": {\n            \"placeholder\": \"微信商户ID\"\n        }\n    },\n    \"props\": {\n        \"label-width\": \"100px\"\n    },\n    \"rules\": {\n        \"required\": true,\n        \"message\": \"值不能为空\"\n    }\n}, {\n    \"label\": \"partnerKey\",\n    \"prop\": \"partnerKey\",\n    \"component\": {\n        \"name\": \"el-input\",\n        \"attrs\": {\n            \"placeholder\": \"微信商户秘钥\"\n        }\n    },\n    \"props\": {\n        \"label-width\": \"100px\"\n    },\n    \"rules\": {\n        \"required\": true,\n        \"message\": \"值不能为空\"\n    }\n}, {\n    \"label\": \"notify_url\",\n    \"prop\": \"notify_url\",\n    \"component\": {\n        \"name\": \"el-input\",\n        \"attrs\": {\n            \"placeholder\": \"异步回调地址\"\n        }\n    },\n    \"props\": {\n        \"label-width\": \"100px\"\n    },\n    \"rules\": {\n        \"required\": true,\n        \"message\": \"值不能为空\"\n    }\n}, {\n    \"label\": \"证书\",\n    \"prop\": \"pfx\",\n    \"component\": {\n        \"name\": \"cl-upload\",\n        \"attrs\": {\n            \"placeholder\": \"证书\"\n        },\n        \"props\": {\n            \"list-type\": \"text\",\n            \"accept\": \"*\",\n            \"limit\": 1\n        }\n    },\n    \"props\": {\n        \"label-width\": \"100px\"\n    }\n}]', 'wxpay:sdk', null);
 
@@ -1480,7 +1902,9 @@ CREATE TABLE `device` (
   `maintainerId` int(11) DEFAULT NULL COMMENT 'ID',
   `params` longtext COLLATE utf8_unicode_ci COMMENT '设备参数',
   `clientid` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '设备标识',
+  `workorder` int(11) NOT NULL COMMENT '对应工单 id ',
   PRIMARY KEY (`id`),
+  UNIQUE KEY `IDX_50bf8f78872cd4361024685c98` (`clientid`),
   KEY `IDX_9f0c9e0e35531a5befca29b925` (`createTime`),
   KEY `IDX_0ee311787989e037e971497b7c` (`updateTime`),
   KEY `FK_9eb58b0b777dbc2864820228ebc` (`userId`),
@@ -1492,9 +1916,9 @@ CREATE TABLE `device` (
 -- ----------------------------
 -- Records of device
 -- ----------------------------
-INSERT INTO `device` VALUES ('4', '2021-03-26 00:40:46.000000', '2021-06-16 14:00:27.000000', '游泳馆翼闸', '通道A', 'dsa:asd:34:dsa:asd:34:dsa:asd:34', '1', '35', null, 'no001');
-INSERT INTO `device` VALUES ('5', '2021-03-26 00:41:09.000000', '2021-06-16 14:00:32.168777', '游泳馆翼闸', '通道B', 'dsa:asd:34:dsa:asd:34:dsa:asd:34', '1', '43', null, 'no002');
-INSERT INTO `device` VALUES ('7', '2021-06-17 14:19:14.402439', '2021-06-17 14:19:14.402439', '测试设备', '通道1', 'mac001', '35', '43', null, 'no002');
+INSERT INTO `device` VALUES ('4', '2021-03-26 00:40:46.000000', '2021-06-19 13:14:38.000000', '游泳馆翼闸', '通道A', 'asd:34:dsa:asd:34', '1', '35', null, 'no001', '0');
+INSERT INTO `device` VALUES ('5', '2021-03-26 00:41:09.000000', '2021-06-16 14:00:32.000000', '游泳馆翼闸', '通道B', '34:dsa:asd:34', '1', '43', null, 'no002', '0');
+INSERT INTO `device` VALUES ('7', '2021-06-17 14:19:14.402439', '2021-06-18 16:25:26.547863', '测试设备', '通道1', 'mac001', '35', '43', null, 'no003', '0');
 
 -- ----------------------------
 -- Table structure for `device_workorder`
@@ -1628,24 +2052,19 @@ CREATE TABLE `workorder` (
   `createTime` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) COMMENT '创建时间',
   `updateTime` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6) COMMENT '更新时间',
   `code` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '错误码',
-  `deviceId` int(11) DEFAULT NULL COMMENT 'ID',
   `status` int(11) NOT NULL COMMENT '工单状态(1.待处理 2.正在处理 3.待审核 4.处理完成 5.失效)',
   `remark` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '备注',
   `orderNum` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '工单号',
+  `deviceId` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '对应设备 clientid',
   PRIMARY KEY (`id`),
   KEY `IDX_c49cf1ebe773e187a5c95a04ae` (`createTime`),
-  KEY `IDX_83a4c5cfd835b378aefe58bbd2` (`updateTime`),
-  KEY `FK_96bb895ffac3c19f2b16afcb795` (`deviceId`),
-  CONSTRAINT `FK_96bb895ffac3c19f2b16afcb795` FOREIGN KEY (`deviceId`) REFERENCES `device` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  KEY `IDX_83a4c5cfd835b378aefe58bbd2` (`updateTime`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of workorder
 -- ----------------------------
-INSERT INTO `workorder` VALUES ('2', '2021-04-01 09:50:08.000000', '2021-06-16 13:56:32.000000', '1001', '5', '4', '弄得还行', '93DA5C10-928C-11EB-AA95-D779A45BF9EA');
-INSERT INTO `workorder` VALUES ('3', '2021-04-01 12:22:48.000000', '2021-04-01 17:09:21.000000', '1001', '5', '4', '弄得还行', 'EA33B7E0-92A1-11EB-9784-ED2719A2C2C8');
-INSERT INTO `workorder` VALUES ('4', '2021-04-02 09:28:49.000000', '2021-06-16 13:56:25.000000', '1003', '4', '4', '弄好了', 'C6DBFF80-9352-11EB-9913-9999C28F1C19');
-INSERT INTO `workorder` VALUES ('5', '2021-04-02 09:35:41.000000', '2021-04-02 09:49:38.000000', '1003', '4', '4', '弄好了啊', 'BC24A960-9353-11EB-9913-9999C28F1C19');
+INSERT INTO `workorder` VALUES ('7', '2021-06-19 09:49:31.562717', '2021-06-19 09:49:31.562717', '0xd0', '1', null, '973882E0-D0A0-11EB-8219-CF84F7FC2289', 'no003');
 
 -- ----------------------------
 -- Table structure for `workorder_code`
