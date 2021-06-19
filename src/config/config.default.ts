@@ -129,7 +129,7 @@ export default (appInfo: EggAppInfo) => {
       port: 1883,
       password: '',
       username: '',
-      clientId: 'servertest',
+      clientId: 'server',
       options: {
         keepalive: 60,
         protocolId: 'MQTT',

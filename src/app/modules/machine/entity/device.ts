@@ -1,14 +1,13 @@
 /*
  * @Author: Chenxu
  * @Date: 2021-03-23 16:44:33
- * @LastEditTime: 2021-04-02 11:08:14
+ * @LastEditTime: 2021-06-19 22:57:38
  * @Msg: Nothing
  */
 import { EntityModel } from '@midwayjs/orm';
 import { BaseEntity } from 'midwayjs-cool-core';
-import { Column, ManyToOne, OneToMany } from 'typeorm';
+import { Column, ManyToOne } from 'typeorm';
 import { BaseSysUserEntity } from "../../base/entity/sys/user";
-import { WorkOrderEntity } from './workorder';
 
 /**
  * 设备
@@ -23,13 +22,10 @@ export class DeviceEntity extends BaseEntity {
   @ManyToOne((type) => BaseSysUserEntity, (user) => user.device)
   maintainer: string;
 
-  @Column({ comment: '对应工单 id ' })
-  workorder: number;
-
   @Column({ comment: '设备参数', type: 'longtext', nullable: true })
   params: string;
 
-  @Column({ comment: '设备标识',unique:true })
+  @Column({ comment: '设备标识', unique: true })
   clientid: string;
 
   @Column({ comment: '设备名称' })

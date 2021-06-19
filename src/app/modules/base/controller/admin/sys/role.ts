@@ -1,6 +1,6 @@
 import { Provide } from '@midwayjs/decorator';
 import { CoolController, BaseController } from 'midwayjs-cool-core';
-import { Context } from 'vm';
+import { Context } from 'egg';
 import { BaseSysRoleEntity } from '../../../entity/sys/role';
 import { BaseSysRoleService } from '../../../service/sys/role';
 
@@ -35,4 +35,4 @@ import { BaseSysRoleService } from '../../../service/sys/role';
     },
   },
 })
-export class BaseSysRoleController extends BaseController {}
+export class BaseSysRoleController extends BaseController { }
