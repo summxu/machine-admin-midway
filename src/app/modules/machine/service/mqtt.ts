@@ -1,7 +1,7 @@
 /*
  * @Author: Chenxu
  * @Date: 2021-03-23 17:00:33
- * @LastEditTime: 2021-03-27 23:52:06
+ * @LastEditTime: 2021-06-19 08:24:47
  * @Msg: Nothing
  */
 import { Inject, Provide } from '@midwayjs/decorator';
@@ -28,16 +28,20 @@ export class MqttService extends BaseService {
   */
 
   async webhook(req) {
-    const { topic, msg } = req
-    const tempTopic = topic.split('-')[0]
-    console.log(msg)
+    const { msg } = req
+    // 收到消息字符串切割 7c7c -> ||
+    if (msg.indexOf('7c7c') === -1) return
+    const msg0 = msg.split('7c7c')[0]
+    const msg1 = msg.split('7c7c')[1]
+    const clientid = Buffer.from(msg0, "hex").toString()
+
     // 查询是否有当前设备
-    const hasDevice = await this.deviceService.has(topic)
+    const hasDevice = await this.deviceService.has(clientid)
     if (!hasDevice) return
     // 创建一个工单
     this.workOrderService.generate({
-      device: tempTopic,
-      code: msg
+      device: clientid,
+      code: msg1
     })
     return true
   }
