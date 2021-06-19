@@ -1,7 +1,7 @@
 /*
  * @Author: Chenxu
  * @Date: 2021-03-23 10:47:00
- * @LastEditTime: 2021-03-26 15:06:15
+ * @LastEditTime: 2021-06-20 00:22:44
  * @Msg: Nothing
  */
 import { EggAppConfig, EggAppInfo, PowerPartial } from 'egg';
@@ -13,11 +13,11 @@ export default (appInfo: EggAppInfo) => {
 
   config.orm = {
     type: 'mysql',
-    host: 'localhost',
+    host: '101.34.41.251',
     port: 3306,
-    username: 'root',
-    password: '123123',
-    database: 'cool',
+    username: 'cool',
+    password: 'd6892fa4853c0537',
+    database: 'machine',
     // 自动建表 注意：线上部署的时候不要使用，有可能导致数据丢失
     synchronize: true,
     // 打印日志
