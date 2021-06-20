@@ -1,7 +1,7 @@
 /*
  * @Author: Chenxu
  * @Date: 2021-03-23 17:00:33
- * @LastEditTime: 2021-06-19 08:24:47
+ * @LastEditTime: 2021-06-20 08:47:45
  * @Msg: Nothing
  */
 import { Inject, Provide } from '@midwayjs/decorator';
@@ -76,7 +76,7 @@ export class MqttService extends BaseService {
    * 查看设备是否在线
    */
   async getStatus(clientid) {
-    const { data } = await this.ctx.curl('http://82.156.12.15:8081/api/v4/clients', {
+    const { data } = await this.ctx.curl('http://101.34.41.251:8081/api/v4/clients', {
       method: 'GET',
       data: { clientid },
       auth: 'admin:public'
