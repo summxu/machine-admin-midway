@@ -1,14 +1,15 @@
 /*
  * @Author: Chenxu
  * @Date: 2021-03-23 17:00:33
- * @LastEditTime: 2021-07-11 12:04:57
+ * @LastEditTime: 2021-07-29 09:19:23
  * @Msg: Nothing
  */
-import { Inject, Provide } from '@midwayjs/decorator';
+import { Inject, Logger, Provide } from '@midwayjs/decorator';
 import { BaseService } from 'midwayjs-cool-core';
 import { DeviceService } from './device';
 import { InstructService } from './instruct';
 import { WorkOrderService } from './workorder';
+import { ILogger } from '@midwayjs/logger';
 
 /**
  * 设备
@@ -23,6 +24,9 @@ export class MqttService extends BaseService {
 
   @Inject()
   workOrderService: WorkOrderService;
+
+  @Logger()
+  logger: ILogger;
   /**
    * 接受订阅消息
   */
@@ -33,6 +37,7 @@ export class MqttService extends BaseService {
     if (msg.indexOf('7c7c') === -1) return
     const msg0 = msg.split('7c7c')[0]
     const code = msg.split('7c7c')[1]
+    this.logger.info(`收到的错误代码为：${code}`)
     const clientid = Buffer.from(msg0, "hex").toString()
     // 查询是否有此代码
     const hasInstruct = await this.instructService.has({ code: '0x' + code, type: 2 })
