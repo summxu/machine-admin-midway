@@ -1,7 +1,7 @@
 /*
  * @Author: Chenxu
  * @Date: 2021-03-23 17:00:33
- * @LastEditTime: 2021-07-29 23:09:03
+ * @LastEditTime: 2021-07-30 10:50:23
  * @Msg: Nothing
  */
 import { Inject, Logger, Provide } from '@midwayjs/decorator';
@@ -37,8 +37,8 @@ export class MqttService extends BaseService {
     if (msg.indexOf('7c7c') === -1) return
     const msg0 = msg.split('7c7c')[0]
     const msg1 = msg.split('7c7c')[1]
-    const code = msg1.substring(2,3)
-    this.logger.info(`收到的错误代码为：${code}`)
+    const code = msg1.substring(2,4)
+    this.logger.info(`收到的上报代码为：${code}`)
     const clientid = Buffer.from(msg0, "hex").toString()
     // 查询是否有此代码
     const hasInstruct = await this.instructService.has({ code: '0x' + code, type: 2 })
