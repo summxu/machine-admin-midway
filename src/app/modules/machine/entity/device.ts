@@ -1,7 +1,7 @@
 /*
  * @Author: Chenxu
  * @Date: 2021-03-23 16:44:33
- * @LastEditTime: 2021-06-19 22:57:38
+ * @LastEditTime: 2021-10-06 09:02:16
  * @Msg: Nothing
  */
 import { EntityModel } from '@midwayjs/orm';
@@ -30,6 +30,9 @@ export class DeviceEntity extends BaseEntity {
 
   @Column({ comment: '设备名称' })
   name: string;
+
+  @Column({ comment: '设备地点' })
+  location: string;
 
   @Column({ comment: '通道名称' })
   channelName: string;

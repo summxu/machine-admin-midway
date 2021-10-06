@@ -1,7 +1,7 @@
 /*
  * @Author: Chenxu
  * @Date: 2021-03-23 17:23:04
- * @LastEditTime: 2021-03-24 09:34:33
+ * @LastEditTime: 2021-10-06 14:27:23
  * @Msg: Nothing
  */
 import { ALL, Body, Inject, Post, Provide } from '@midwayjs/decorator';

@@ -1,11 +1,11 @@
 /*
  * @Author: Chenxu
  * @Date: 2021-03-23 17:00:33
- * @LastEditTime: 2021-07-30 10:50:23
+ * @LastEditTime: 2021-10-06 16:27:53
  * @Msg: Nothing
  */
 import { Inject, Logger, Provide } from '@midwayjs/decorator';
-import { BaseService } from 'midwayjs-cool-core';
+import { BaseService, ICoolCache } from 'midwayjs-cool-core';
 import { DeviceService } from './device';
 import { InstructService } from './instruct';
 import { WorkOrderService } from './workorder';
@@ -27,6 +27,10 @@ export class MqttService extends BaseService {
 
   @Logger()
   logger: ILogger;
+
+  // 注入缓存实例，该缓存实例是midwayjs-cool-core组件提供的，注入它需要加命名空间前缀
+  @Inject('cool:cache')
+  coolCache: ICoolCache;
   /**
    * 接受订阅消息
   */
@@ -37,8 +41,9 @@ export class MqttService extends BaseService {
     if (msg.indexOf('7c7c') === -1) return
     const msg0 = msg.split('7c7c')[0]
     const msg1 = msg.split('7c7c')[1]
-    const code = msg1.substring(2,4)
-    this.logger.info(`收到的上报代码为：${code}`)
+    const code = msg1.substring(2, 4)
+    const val = msg1.substring(4, 6)
+    this.logger.info(`收到的上报代码为：${code}-${val}`)
     const clientid = Buffer.from(msg0, "hex").toString()
     // 查询是否有此代码
     const hasInstruct = await this.instructService.has({ code: '0x' + code, type: 2 })
@@ -46,6 +51,44 @@ export class MqttService extends BaseService {
     // 查询是否有当前设备
     const hasDevice = await this.deviceService.has(clientid)
     if (!hasDevice) return
+    // 操作缓存
+    // 如果为挡住红外线
+    if ('0x' + code === '0xd0' || '0x' + code === '0xda') {
+      const haskey = await this.coolCache.keys(`device:infrared:${clientid}`)
+      var infrared = [1, 1, 1]
+      if (haskey.length) {
+        infrared = JSON.parse(await this.coolCache.get(`device:infrared:${clientid}`))
+      }
+      infrared[Number(val) - 1] = '0x' + code === '0xd0' ? 2 : 1
+      await this.coolCache.set(
+        `device:infrared:${clientid}`,
+        JSON.stringify(infrared)
+      );
+      return
+    }
+    // 如果为上报电压
+    if ('0x' + code === '0xd9') {
+      const haskey = await this.coolCache.keys(`device:voltage:${clientid}`)
+      var voltage = []
+      if (haskey.length) {
+        voltage = JSON.parse(await this.coolCache.get(`device:voltage:${clientid}`))
+      }
+      voltage.push({ value: Number(val), time: new Date() })
+      await this.coolCache.set(
+        `device:voltage:${clientid}`,
+        JSON.stringify(voltage)
+      );
+      return
+    }
+    // 如果为上报设备参数
+    if ('0x' + code === '0xdb') {
+      const deviceParams = msg1.substring(4, msg1.length)
+      await this.coolCache.set(
+        `device:deviceParams:${clientid}`,
+        deviceParams
+      );
+      return
+    }
     // 创建一个工单
     this.workOrderService.generate({
       deviceId: clientid,
@@ -90,5 +133,6 @@ export class MqttService extends BaseService {
     const res = JSON.parse(data.toString())
     return res.data.length
   }
+
 }
 
