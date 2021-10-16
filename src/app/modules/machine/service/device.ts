@@ -1,7 +1,7 @@
 /*
  * @Author: Chenxu
  * @Date: 2021-03-23 17:00:33
- * @LastEditTime: 2021-10-16 17:27:41
+ * @LastEditTime: 2021-10-16 17:47:00
  * @Msg: Nothing
  */
 import { Inject, Provide } from '@midwayjs/decorator';
@@ -80,7 +80,7 @@ export class DeviceService extends BaseService {
       .getRawOne()
 
     // 获取设备其他属性
-    var infrared = [2, 2, 2]
+    var infrared = [0, 0, 0]
     var voltage = []
 
     const hasInfrared = await this.coolCache.keys(`device:infrared:${deviceInfo.clientid}`)

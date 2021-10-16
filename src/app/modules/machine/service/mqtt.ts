@@ -56,7 +56,7 @@ export class MqttService extends BaseService {
     if ('0x' + code === '0xd0' || '0x' + code === '0xd4' || '0x' + code === '0xd6') {
       const haskey = await this.coolCache.keys(`device:infrared:${clientid}`)
       // 1 非法闯入（红色） 2 正常进入（绿色）3 故障（黑色） 0 未通电
-      var infrared = [2, 2, 2]
+      var infrared = [0, 0, 0]
       if (haskey.length) {
         infrared = JSON.parse(await this.coolCache.get(`device:infrared:${clientid}`))
       }
