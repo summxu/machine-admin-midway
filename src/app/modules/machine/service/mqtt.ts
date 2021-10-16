@@ -1,7 +1,7 @@
 /*
  * @Author: Chenxu
  * @Date: 2021-03-23 17:00:33
- * @LastEditTime: 2021-10-06 16:27:53
+ * @LastEditTime: 2021-10-16 14:36:16
  * @Msg: Nothing
  */
 import { Inject, Logger, Provide } from '@midwayjs/decorator';
@@ -53,13 +53,31 @@ export class MqttService extends BaseService {
     if (!hasDevice) return
     // 操作缓存
     // 如果为挡住红外线
-    if ('0x' + code === '0xd0' || '0x' + code === '0xda') {
+    if ('0x' + code === '0xd0' || '0x' + code === '0xd4' || '0x' + code === '0xd6') {
       const haskey = await this.coolCache.keys(`device:infrared:${clientid}`)
+      // 1 非法闯入（红色） 2 正常进入（绿色）3 故障（黑色） 0 未通电
       var infrared = [1, 1, 1]
       if (haskey.length) {
         infrared = JSON.parse(await this.coolCache.get(`device:infrared:${clientid}`))
       }
-      infrared[Number(val) - 1] = '0x' + code === '0xd0' ? 2 : 1
+      // val === 0 红外未通电
+      if (Number(val) === 0) {
+        infrared = [0, 0, 0]
+      } else {
+        // 常态下触发红外线 亮红色
+        if ('0x' + code === '0xd0') {
+          infrared[Number(val) - 1] = 1
+        }
+        // 开门下触发红外线 亮绿色
+        if ('0x' + code === '0xd6') {
+          infrared[Number(val) - 1] = 2
+        }
+        // 红外线故障 亮黑色
+        if ('0x' + code === '0xd4') {
+          infrared[Number(val) - 1] = 2
+        }
+      }
+
       await this.coolCache.set(
         `device:infrared:${clientid}`,
         JSON.stringify(infrared)

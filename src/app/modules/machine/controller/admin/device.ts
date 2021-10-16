@@ -1,10 +1,10 @@
 /*
  * @Author: Chenxu
  * @Date: 2021-03-23 17:23:04
- * @LastEditTime: 2021-04-01 10:10:44
+ * @LastEditTime: 2021-10-16 14:56:30
  * @Msg: Nothing
  */
-import { Provide } from '@midwayjs/decorator';
+import { ALL, Body, Inject, Post, Provide } from '@midwayjs/decorator';
 import { Context } from 'egg';
 import { BaseController, CoolController } from 'midwayjs-cool-core';
 import { DeviceEntity } from "../../entity/device";
@@ -24,4 +24,15 @@ import { DeviceService } from '../../service/device';
     }
   },
 })
-export class DeviceAdminController extends BaseController { }
+export class DeviceAdminController extends BaseController {
+  @Inject()
+  deviceService: DeviceService;
+
+  /**
+  * 接受webhook消息
+  */
+  @Post('/sendParams')
+  async webhook(@Body(ALL) params) {
+    return this.ok(await this.deviceService.sendParams);
+  }
+ }

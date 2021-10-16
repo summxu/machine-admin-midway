@@ -1,7 +1,7 @@
 /*
  * @Author: Chenxu
  * @Date: 2021-03-23 17:00:33
- * @LastEditTime: 2021-10-06 15:59:15
+ * @LastEditTime: 2021-10-16 14:56:54
  * @Msg: Nothing
  */
 import { Inject, Provide } from '@midwayjs/decorator';
@@ -27,47 +27,6 @@ export class DeviceService extends BaseService {
   // 注入缓存实例，该缓存实例是midwayjs-cool-core组件提供的，注入它需要加命名空间前缀
   @Inject('cool:cache')
   coolCache: ICoolCache;
-
-  async list(params) {
-    const queryOption = {
-      keyWordLikeFields: ['name', 'channelName'],
-      select: ['a.*', 'b.name as userName', 'c.name as maintainerName'],
-      where: async (ctx: Context) => {
-        if (ctx.admin.username === 'admin') return
-        return [
-          ['a.userId = :userId or maintainerId = :maintainerId', {
-            userId: ctx.admin.userId,
-            maintainerId: ctx.admin.userId
-          }]
-        ]
-      },
-      leftJoin: [
-        {
-          entity: BaseSysUserEntity,
-          alias: 'b',
-          condition: 'a.userId = b.id',
-        }, {
-          entity: BaseSysUserEntity,
-          alias: 'c',
-          condition: 'a.maintainerId = c.id',
-        },
-      ],
-    }
-
-    let res = await super.list(params, queryOption)
-    // 获取设备在线状态
-    for (let index = 0; index < res.length; index++) {
-      const element = res[index];
-      try {
-        const status = await this.mqttService.getStatus(element.clientid)
-        element.status = status
-      } catch (error) {
-        return error
-      }
-    }
-    return res
-  }
-
   async page(params) {
     const queryOption = {
       keyWordLikeFields: ['name', 'channelName'],
@@ -137,7 +96,7 @@ export class DeviceService extends BaseService {
       deviceParams = await this.coolCache.get(`device:deviceParams:${deviceInfo.clientid}`)
     }
 
-    // 重新查询设备参数
+    // 重新查询设备参数（读取菜单）
     await this.mqttService.sendmsg({
       topic: String(id),
       code: '0xdb'
@@ -157,5 +116,10 @@ export class DeviceService extends BaseService {
       .where({ clientid })
       .getRawOne()
     return deviceInfo
+  }
+
+  // 设置设备参数
+  async sendParams(params) {
+    console.log(params)
   }
 }
