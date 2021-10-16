@@ -1,7 +1,7 @@
 /*
  * @Author: Chenxu
  * @Date: 2021-03-23 17:00:33
- * @LastEditTime: 2021-10-16 14:56:54
+ * @LastEditTime: 2021-10-16 17:27:41
  * @Msg: Nothing
  */
 import { Inject, Provide } from '@midwayjs/decorator';
@@ -80,29 +80,51 @@ export class DeviceService extends BaseService {
       .getRawOne()
 
     // 获取设备其他属性
-    var infrared = [1, 1, 1]
+    var infrared = [2, 2, 2]
     var voltage = []
-    var deviceParams = ''
+
     const hasInfrared = await this.coolCache.keys(`device:infrared:${deviceInfo.clientid}`)
     const hasVoltage = await this.coolCache.keys(`device:voltage:${deviceInfo.clientid}`)
-    const hasDeviceParams = await this.coolCache.keys(`device:params:${deviceInfo.clientid}`)
+
     if (hasInfrared.length) {
       infrared = JSON.parse(await this.coolCache.get(`device:infrared:${deviceInfo.clientid}`))
     }
     if (hasVoltage.length) {
       voltage = JSON.parse(await this.coolCache.get(`device:voltage:${deviceInfo.clientid}`))
     }
-    if (hasDeviceParams.length) {
-      deviceParams = await this.coolCache.get(`device:deviceParams:${deviceInfo.clientid}`)
-    }
+
+    return { ...deviceInfo, infrared, voltage }
+  }
+
+  // 获取设备参数
+  async getParams(id) {
+    const deviceInfo = await this.deviceEntity
+      .createQueryBuilder('device')
+      .select(['device.*'])
+      .addSelect('device.maintainerId', 'maintainer')
+      .where({ id })
+      .getRawOne()
 
     // 重新查询设备参数（读取菜单）
     await this.mqttService.sendmsg({
-      topic: String(id),
+      topic: String(deviceInfo.clientid),
       code: '0xdb'
     })
 
-    return { ...deviceInfo, infrared, voltage, deviceParams }
+    await this.coolCache.del(`device:params:${deviceInfo.clientid}`)
+
+
+    return new Promise((resolve, reject) => {
+      const timer = setInterval(async () => {
+        const hasDeviceParams = await this.coolCache.keys(`device:params:${deviceInfo.clientid}`)
+        if (hasDeviceParams.length) {
+          const deviceParams = await this.coolCache.get(`device:params:${deviceInfo.clientid}`)
+          clearInterval(timer)
+          resolve(deviceParams)
+        }
+      }, 1000);
+    })
+
   }
 
   /**
@@ -119,7 +141,28 @@ export class DeviceService extends BaseService {
   }
 
   // 设置设备参数
-  async sendParams(params) {
-    console.log(params)
+  async sendParams({ id, formData }) {
+    const hexArr = formData.map(item => item.toString(16))
+
+    const deviceInfo = await this.deviceEntity
+      .createQueryBuilder('device')
+      .select(['device.*'])
+      .addSelect('device.maintainerId', 'maintainer')
+      .where({ id })
+      .getRawOne()
+
+    const app: any = this.app
+    let sum = parseInt('0x19', 16) ^ parseInt('0xdd', 16)
+    hexArr.forEach(item => {
+      sum = sum ^ parseInt(`0x${item}`, 16)
+    });
+    console.log(hexArr.map(item => '0x' + item), '0x' + sum.toString(16))
+    const buffer = Buffer.from([0x19, '0xdd', ...hexArr.map(item => '0x' + item), '0x' + sum.toString(16)]);
+    // const buffer = Buffer.from([2, 32, 49, 46, 32, 192, 3, 0, 4]).toString('hex').match(/[a-z0-9][a-z0-9]/g).join(' ');
+    try {
+      await app.emqtt.publish(deviceInfo.clientid, buffer, { qos: 0 });
+    } catch (error) {
+      return new Error(error)
+    }
   }
 }

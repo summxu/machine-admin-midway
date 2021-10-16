@@ -1,7 +1,7 @@
 /*
  * @Author: Chenxu
  * @Date: 2021-03-23 17:00:33
- * @LastEditTime: 2021-10-16 14:36:16
+ * @LastEditTime: 2021-10-16 17:22:09
  * @Msg: Nothing
  */
 import { Inject, Logger, Provide } from '@midwayjs/decorator';
@@ -56,7 +56,7 @@ export class MqttService extends BaseService {
     if ('0x' + code === '0xd0' || '0x' + code === '0xd4' || '0x' + code === '0xd6') {
       const haskey = await this.coolCache.keys(`device:infrared:${clientid}`)
       // 1 非法闯入（红色） 2 正常进入（绿色）3 故障（黑色） 0 未通电
-      var infrared = [1, 1, 1]
+      var infrared = [2, 2, 2]
       if (haskey.length) {
         infrared = JSON.parse(await this.coolCache.get(`device:infrared:${clientid}`))
       }
@@ -99,10 +99,12 @@ export class MqttService extends BaseService {
       return
     }
     // 如果为上报设备参数
-    if ('0x' + code === '0xdb') {
-      const deviceParams = msg1.substring(4, msg1.length)
+    if ('0x' + code === '0xdc') {
+      const deviceParams = msg1.substring(4, msg1.length - 2)
+      this.logger.info(`收到的上报参数为${deviceParams}`)
+
       await this.coolCache.set(
-        `device:deviceParams:${clientid}`,
+        `device:params:${clientid}`,
         deviceParams
       );
       return
@@ -132,6 +134,7 @@ export class MqttService extends BaseService {
     const sum = parseInt('0x04', 16) ^ parseInt(code, 16) ^ nop
     const buffer = Buffer.from([0x04, code, '0x' + nop.toString(16), '0x' + sum.toString(16)]);
     // const buffer = Buffer.from([2, 32, 49, 46, 32, 192, 3, 0, 4]).toString('hex').match(/[a-z0-9][a-z0-9]/g).join(' ');
+    console.log(`发送命令为：${code}`)
     try {
       await app.emqtt.publish(topic, buffer, { qos: 0 });
     } catch (error) {
