@@ -1,7 +1,7 @@
 /*
  * @Author: Chenxu
  * @Date: 2021-03-23 17:00:33
- * @LastEditTime: 2021-10-16 17:47:00
+ * @LastEditTime: 2021-10-17 15:44:37
  * @Msg: Nothing
  */
 import { Inject, Provide } from '@midwayjs/decorator';
@@ -82,9 +82,11 @@ export class DeviceService extends BaseService {
     // 获取设备其他属性
     var infrared = [0, 0, 0]
     var voltage = []
+    var log = []
 
     const hasInfrared = await this.coolCache.keys(`device:infrared:${deviceInfo.clientid}`)
     const hasVoltage = await this.coolCache.keys(`device:voltage:${deviceInfo.clientid}`)
+    const hasLog = await this.coolCache.keys(`device:log:${deviceInfo.clientid}`)
 
     if (hasInfrared.length) {
       infrared = JSON.parse(await this.coolCache.get(`device:infrared:${deviceInfo.clientid}`))
@@ -92,8 +94,11 @@ export class DeviceService extends BaseService {
     if (hasVoltage.length) {
       voltage = JSON.parse(await this.coolCache.get(`device:voltage:${deviceInfo.clientid}`))
     }
+    if (hasLog.length) {
+      log = JSON.parse(await this.coolCache.get(`device:log:${deviceInfo.clientid}`))
+    }
 
-    return { ...deviceInfo, infrared, voltage }
+    return { ...deviceInfo, infrared, voltage, log }
   }
 
   // 获取设备参数

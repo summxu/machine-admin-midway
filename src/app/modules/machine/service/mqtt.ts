@@ -1,7 +1,7 @@
 /*
  * @Author: Chenxu
  * @Date: 2021-03-23 17:00:33
- * @LastEditTime: 2021-10-16 17:22:09
+ * @LastEditTime: 2021-10-17 16:26:19
  * @Msg: Nothing
  */
 import { Inject, Logger, Provide } from '@midwayjs/decorator';
@@ -43,8 +43,20 @@ export class MqttService extends BaseService {
     const msg1 = msg.split('7c7c')[1]
     const code = msg1.substring(2, 4)
     const val = msg1.substring(4, 6)
-    this.logger.info(`收到的上报代码为：${code}-${val}`)
     const clientid = Buffer.from(msg0, "hex").toString()
+
+    if (code !== 'dc') {
+      const logMsg = `收到上报代码：${code}，传递的值为：${val}`
+      const haslogkey = await this.coolCache.keys(`device:log:${clientid}`)
+      let log = []
+      if (haslogkey.length) {
+        log = JSON.parse(await this.coolCache.get(`device:log:${clientid}`))
+      }
+      log.push(logMsg)
+      await this.coolCache.set(`device:log:${clientid}`, JSON.stringify(log))
+      this.logger.info(logMsg)
+    }
+
     // 查询是否有此代码
     const hasInstruct = await this.instructService.has({ code: '0x' + code, type: 2 })
     if (!hasInstruct) return
@@ -66,15 +78,21 @@ export class MqttService extends BaseService {
       } else {
         // 常态下触发红外线 亮红色
         if ('0x' + code === '0xd0') {
-          infrared[Number(val) - 1] = 1
+          const hexNum = Number(val).toString(2)
+          const hexStr = `000${hexNum}`.slice(hexNum.length, hexNum.length + 3)
+          infrared = infrared.map((item, index) => Number(hexStr[index]) ? 1 : 0)
         }
         // 开门下触发红外线 亮绿色
         if ('0x' + code === '0xd6') {
-          infrared[Number(val) - 1] = 2
+          const hexNum = Number(val).toString(2)
+          const hexStr = `000${hexNum}`.slice(hexNum.length, hexNum.length + 3)
+          infrared = infrared.map((item, index) => Number(hexStr[index]) ? 2 : 0)
         }
         // 红外线故障 亮黑色
         if ('0x' + code === '0xd4') {
-          infrared[Number(val) - 1] = 2
+          const hexNum = Number(val).toString(2)
+          const hexStr = `000${hexNum}`.slice(hexNum.length, hexNum.length + 3)
+          infrared = infrared.map((item, index) => Number(hexStr[index]) ? 3 : 0)
         }
       }
 
@@ -134,7 +152,19 @@ export class MqttService extends BaseService {
     const sum = parseInt('0x04', 16) ^ parseInt(code, 16) ^ nop
     const buffer = Buffer.from([0x04, code, '0x' + nop.toString(16), '0x' + sum.toString(16)]);
     // const buffer = Buffer.from([2, 32, 49, 46, 32, 192, 3, 0, 4]).toString('hex').match(/[a-z0-9][a-z0-9]/g).join(' ');
-    console.log(`发送命令为：${code}`)
+
+    if (code !== '0xdb') {
+      const logMsg = `发送设备指令：${code}`
+      const haslogkey = await this.coolCache.keys(`device:log:${topic}`)
+      let log = []
+      if (haslogkey.length) {
+        log = JSON.parse(await this.coolCache.get(`device:log:${topic}`))
+      }
+      log.push(logMsg)
+      await this.coolCache.set(`device:log:${topic}`, JSON.stringify(log))
+      this.logger.info(logMsg)
+    }
+
     try {
       await app.emqtt.publish(topic, buffer, { qos: 0 });
     } catch (error) {
