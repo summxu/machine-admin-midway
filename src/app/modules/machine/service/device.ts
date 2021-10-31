@@ -1,7 +1,7 @@
 /*
  * @Author: Chenxu
  * @Date: 2021-03-23 17:00:33
- * @LastEditTime: 2021-10-17 15:44:37
+ * @LastEditTime: 2021-10-31 10:47:42
  * @Msg: Nothing
  */
 import { Inject, Provide } from '@midwayjs/decorator';
@@ -69,6 +69,17 @@ export class DeviceService extends BaseService {
   }
 
   /**
+   * 查找设备的Clientids
+   */
+  async getDeviceClientids() {
+    const deviceClientids = await this.deviceEntity
+      .createQueryBuilder('device')
+      .select(['device.clientid','device.maintime','device.createTime'])
+      .getMany()
+    return deviceClientids
+  }
+
+  /**
    * 获取设备信息
    */
   async info(id) {
@@ -83,10 +94,12 @@ export class DeviceService extends BaseService {
     var infrared = [0, 0, 0]
     var voltage = []
     var log = []
+    var fire = false
 
     const hasInfrared = await this.coolCache.keys(`device:infrared:${deviceInfo.clientid}`)
     const hasVoltage = await this.coolCache.keys(`device:voltage:${deviceInfo.clientid}`)
     const hasLog = await this.coolCache.keys(`device:log:${deviceInfo.clientid}`)
+    const hasFire = await this.coolCache.keys(`device:fire:${deviceInfo.clientid}`)
 
     if (hasInfrared.length) {
       infrared = JSON.parse(await this.coolCache.get(`device:infrared:${deviceInfo.clientid}`))
@@ -97,8 +110,11 @@ export class DeviceService extends BaseService {
     if (hasLog.length) {
       log = JSON.parse(await this.coolCache.get(`device:log:${deviceInfo.clientid}`))
     }
+    if (hasFire.length) {
+      fire = true
+    }
 
-    return { ...deviceInfo, infrared, voltage, log }
+    return { ...deviceInfo, infrared, voltage, log, fire }
   }
 
   // 获取设备参数

@@ -1,7 +1,7 @@
 /*
  * @Author: Chenxu
  * @Date: 2021-03-23 16:44:33
- * @LastEditTime: 2021-10-06 09:02:16
+ * @LastEditTime: 2021-10-30 21:12:13
  * @Msg: Nothing
  */
 import { EntityModel } from '@midwayjs/orm';
@@ -39,6 +39,9 @@ export class DeviceEntity extends BaseEntity {
 
   @Column({ comment: 'MAC地址' })
   mac: string;
+
+  @Column({ comment: '检修时长' })
+  maintime: string;
 
   // @Column({ comment: '设备状态（1:在线，2:离线）' })
   // status: number;

@@ -1,15 +1,15 @@
 /*
  * @Author: Chenxu
  * @Date: 2021-03-23 17:00:33
- * @LastEditTime: 2021-04-01 22:21:43
+ * @LastEditTime: 2021-10-31 10:24:02
  * @Msg: Nothing
  */
 import { Provide } from '@midwayjs/decorator';
 import { InjectEntityModel } from '@midwayjs/orm';
 import { BaseService } from 'midwayjs-cool-core';
 import { Repository } from 'typeorm';
-import { WorkOrderEntity } from '../entity/workorder';
 import { v1 as uuid } from 'uuid';
+import { WorkOrderEntity } from '../entity/workorder';
 /**
  * 设备
  */
@@ -49,5 +49,17 @@ export class WorkOrderService extends BaseService {
       .where({ id })
       .getRawOne()
     return workOrderInfo
+  }
+
+  /**
+   * 查找未完成维保的工单
+   * @param id 
+   */
+  async isUndoneMain(clientid) {
+    const order = await this.workOrderEntity
+      .createQueryBuilder('workorder')
+      .where(`deviceId = '${clientid}' and code = '0xff'`)
+      .getMany()
+    return order
   }
 }

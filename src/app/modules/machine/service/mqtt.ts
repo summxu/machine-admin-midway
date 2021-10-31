@@ -1,7 +1,7 @@
 /*
  * @Author: Chenxu
  * @Date: 2021-03-23 17:00:33
- * @LastEditTime: 2021-10-17 16:26:19
+ * @LastEditTime: 2021-10-31 11:02:21
  * @Msg: Nothing
  */
 import { Inject, Logger, Provide } from '@midwayjs/decorator';
@@ -45,6 +45,7 @@ export class MqttService extends BaseService {
     const val = msg1.substring(4, 6)
     const clientid = Buffer.from(msg0, "hex").toString()
 
+    // 单片机上报参数
     if (code !== 'dc') {
       const logMsg = `收到上报代码：${code}，传递的值为：${val}`
       const haslogkey = await this.coolCache.keys(`device:log:${clientid}`)
@@ -55,6 +56,7 @@ export class MqttService extends BaseService {
       log.push(logMsg)
       await this.coolCache.set(`device:log:${clientid}`, JSON.stringify(log))
       this.logger.info(logMsg)
+      return
     }
 
     // 查询是否有此代码
@@ -63,6 +65,7 @@ export class MqttService extends BaseService {
     // 查询是否有当前设备
     const hasDevice = await this.deviceService.has(clientid)
     if (!hasDevice) return
+
     // 操作缓存
     // 如果为挡住红外线
     if ('0x' + code === '0xd0' || '0x' + code === '0xd4' || '0x' + code === '0xd6') {
@@ -81,27 +84,41 @@ export class MqttService extends BaseService {
           const hexNum = Number(val).toString(2)
           const hexStr = `000${hexNum}`.slice(hexNum.length, hexNum.length + 3)
           infrared = infrared.map((item, index) => Number(hexStr[index]) ? 1 : 0)
+          await this.coolCache.set(
+            `device:infrared:${clientid}`,
+            JSON.stringify(infrared)
+          );
+          return
         }
         // 开门下触发红外线 亮绿色
         if ('0x' + code === '0xd6') {
           const hexNum = Number(val).toString(2)
           const hexStr = `000${hexNum}`.slice(hexNum.length, hexNum.length + 3)
           infrared = infrared.map((item, index) => Number(hexStr[index]) ? 2 : 0)
+          await this.coolCache.set(
+            `device:infrared:${clientid}`,
+            JSON.stringify(infrared)
+          );
+          return
         }
         // 红外线故障 亮黑色
         if ('0x' + code === '0xd4') {
           const hexNum = Number(val).toString(2)
           const hexStr = `000${hexNum}`.slice(hexNum.length, hexNum.length + 3)
           infrared = infrared.map((item, index) => Number(hexStr[index]) ? 3 : 0)
+          await this.coolCache.set(
+            `device:infrared:${clientid}`,
+            JSON.stringify(infrared)
+          );
         }
       }
-
-      await this.coolCache.set(
-        `device:infrared:${clientid}`,
-        JSON.stringify(infrared)
-      );
-      return
     }
+
+    // 如果为启动/取消消防
+    if ('0x' + code === '0xe8') {
+      await this.coolCache.set(`device:fire:${clientid}`, true)
+    }
+
     // 如果为上报电压
     if ('0x' + code === '0xd9') {
       const haskey = await this.coolCache.keys(`device:voltage:${clientid}`)
@@ -116,6 +133,7 @@ export class MqttService extends BaseService {
       );
       return
     }
+
     // 如果为上报设备参数
     if ('0x' + code === '0xdc') {
       const deviceParams = msg1.substring(4, msg1.length - 2)
@@ -125,8 +143,8 @@ export class MqttService extends BaseService {
         `device:params:${clientid}`,
         deviceParams
       );
-      return
     }
+
     // 创建一个工单
     this.workOrderService.generate({
       deviceId: clientid,
@@ -163,6 +181,10 @@ export class MqttService extends BaseService {
       log.push(logMsg)
       await this.coolCache.set(`device:log:${topic}`, JSON.stringify(log))
       this.logger.info(logMsg)
+    }
+
+    if (code === '0xa9') {
+      await this.coolCache.del(`device:fire:${topic}`)
     }
 
     try {
