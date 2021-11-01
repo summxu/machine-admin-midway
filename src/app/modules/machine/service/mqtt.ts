@@ -1,7 +1,7 @@
 /*
  * @Author: Chenxu
  * @Date: 2021-03-23 17:00:33
- * @LastEditTime: 2021-10-31 11:02:21
+ * @LastEditTime: 2021-11-01 15:28:44
  * @Msg: Nothing
  */
 import { Inject, Logger, Provide } from '@midwayjs/decorator';
@@ -45,7 +45,7 @@ export class MqttService extends BaseService {
     const val = msg1.substring(4, 6)
     const clientid = Buffer.from(msg0, "hex").toString()
 
-    // 单片机上报参数
+    // 上报日志
     if (code !== 'dc') {
       const logMsg = `收到上报代码：${code}，传递的值为：${val}`
       const haslogkey = await this.coolCache.keys(`device:log:${clientid}`)
@@ -56,7 +56,6 @@ export class MqttService extends BaseService {
       log.push(logMsg)
       await this.coolCache.set(`device:log:${clientid}`, JSON.stringify(log))
       this.logger.info(logMsg)
-      return
     }
 
     // 查询是否有此代码
@@ -143,6 +142,8 @@ export class MqttService extends BaseService {
         `device:params:${clientid}`,
         deviceParams
       );
+
+      return
     }
 
     // 创建一个工单
