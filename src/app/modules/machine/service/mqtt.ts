@@ -1,7 +1,7 @@
 /*
  * @Author: Chenxu
  * @Date: 2021-03-23 17:00:33
- * @LastEditTime: 2021-11-01 15:28:44
+ * @LastEditTime: 2021-11-07 13:22:23
  * @Msg: Nothing
  */
 import { Inject, Logger, Provide } from '@midwayjs/decorator';
@@ -77,6 +77,11 @@ export class MqttService extends BaseService {
       // val === 0 红外未通电
       if (Number(val) === 0) {
         infrared = [0, 0, 0]
+        await this.coolCache.set(
+          `device:infrared:${clientid}`,
+          JSON.stringify(infrared)
+        );
+        return
       } else {
         // 常态下触发红外线 亮红色
         if ('0x' + code === '0xd0') {

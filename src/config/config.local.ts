@@ -1,7 +1,7 @@
 /*
  * @Author: Chenxu
  * @Date: 2021-03-23 10:47:00
- * @LastEditTime: 2021-06-20 00:22:44
+ * @LastEditTime: 2021-11-07 12:12:01
  * @Msg: Nothing
  */
 import { EggAppConfig, EggAppInfo, PowerPartial } from 'egg';
