@@ -1,7 +1,7 @@
 /*
  * @Author: Chenxu
  * @Date: 2021-03-23 17:00:33
- * @LastEditTime: 2021-11-07 13:22:23
+ * @LastEditTime: 2021-11-14 10:09:59
  * @Msg: Nothing
  */
 import { Inject, Logger, Provide } from '@midwayjs/decorator';
@@ -45,6 +45,14 @@ export class MqttService extends BaseService {
     const val = msg1.substring(4, 6)
     const clientid = Buffer.from(msg0, "hex").toString()
 
+    // 查询是否有此代码
+    const hasInstruct = await this.instructService.has({ code: '0x' + code, type: 2 })
+    console.log(hasInstruct)
+    if (!hasInstruct) return
+    // 查询是否有当前设备
+    const hasDevice = await this.deviceService.has(clientid)
+    if (!hasDevice) return
+
     // 上报日志
     if (code !== 'dc') {
       const logMsg = `收到上报代码：${code}，传递的值为：${val}`
@@ -57,13 +65,6 @@ export class MqttService extends BaseService {
       await this.coolCache.set(`device:log:${clientid}`, JSON.stringify(log))
       this.logger.info(logMsg)
     }
-
-    // 查询是否有此代码
-    const hasInstruct = await this.instructService.has({ code: '0x' + code, type: 2 })
-    if (!hasInstruct) return
-    // 查询是否有当前设备
-    const hasDevice = await this.deviceService.has(clientid)
-    if (!hasDevice) return
 
     // 操作缓存
     // 如果为挡住红外线
